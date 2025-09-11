@@ -3,7 +3,8 @@ import type { Metadata } from "next";
 import CookieBar from "./components/CookieBar";
 import AnalyticsGate from "./components/AnalyticsGate";
 import Script from "next/script";
-import Footer from "./components/Footer"; // ⬅️ NOWE
+import Footer from "./components/Footer";
+import Header from "./components/Header";
 
 export const metadata: Metadata = {
   title: "RedHoodNova — Web Design & Branding",
@@ -14,7 +15,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className="bg-black">
       <body className="bg-black text-white antialiased min-h-screen flex flex-col">
-        {/* Content */}
+        {/* Header globalny */}
+        <Header />
+
+        {/* Główna treść */}
         <div className="flex-1">{children}</div>
 
         {/* Footer globalny */}

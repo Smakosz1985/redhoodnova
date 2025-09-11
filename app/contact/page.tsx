@@ -1,15 +1,46 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 export default function ContactPage() {
   const [status, setStatus] =
     useState<"idle" | "loading" | "success" | "error">("idle");
 
+  // --- Anti-spam: stempel czasu + token formularza
+  const createdAt = useMemo(() => Date.now(), []);
+  const formToken = useMemo(
+    () => Math.random().toString(36).slice(2) + Date.now().toString(36),
+    []
+  );
+
+  // prosta blokada floodu po stronie przeglądarki (20 s cooldown)
+  function checkClientCooldown(): string | null {
+    try {
+      const raw = localStorage.getItem("rhn-last-submit");
+      if (!raw) return null;
+      const last = Number(raw);
+      const diff = Date.now() - last;
+      const min = 20_000; // 20 s
+      if (diff < min) {
+        const left = Math.ceil((min - diff) / 1000);
+        return `Please wait ${left}s before sending again.`;
+      }
+    } catch {}
+    return null;
+  }
+
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setStatus("loading");
+
+    // blokada floodu
+    const cd = checkClientCooldown();
+    if (cd) {
+      setStatus("error");
+      alert(cd);
+      return;
+    }
 
     const form = e.currentTarget;
     const fd = new FormData(form);
@@ -22,23 +53,29 @@ export default function ContactPage() {
       return;
     }
 
-    const data = {
+    const payload = {
       name: (fd.get("name") as string) || "",
       email: (fd.get("email") as string) || "",
       subject: (fd.get("subject") as string) || "",
       message: (fd.get("message") as string) || "",
+      // anti-spam pola:
+      _createdAt: String(createdAt),
+      _formToken: formToken,
     };
 
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+        body: JSON.stringify(payload),
       });
 
       if (res.ok) {
         setStatus("success");
         form.reset();
+        try {
+          localStorage.setItem("rhn-last-submit", String(Date.now()));
+        } catch {}
       } else {
         setStatus("error");
       }
@@ -49,33 +86,10 @@ export default function ContactPage() {
 
   return (
     <main className="min-h-screen bg-black text-white flex flex-col">
-      {/* HEADER */}
-      <header className="sticky top-0 z-50 w-full border-b border-white/10 bg-black/80 backdrop-blur">
-        <div className="mx-auto max-w-7xl px-6 py-3 flex items-center justify-between">
-          <div className="shrink-0">
-            <Image
-              src="/logoRED.png"
-              alt="RedHoodNova"
-              width={160}
-              height={160}
-              className="h-14 w-auto md:h-16"
-              priority
-            />
-          </div>
-          <nav className="hidden md:flex items-center gap-8 text-sm font-medium">
-            <Link href="/" className="hover:text-orange-400 transition">Home</Link>
-            <Link href="/about" className="hover:text-orange-400 transition">About</Link>
-            <Link href="/work" className="hover:text-orange-400 transition">Our Work</Link>
-            <Link href="/services" className="hover:text-orange-400 transition">Services</Link>
-            <Link href="/contact" className="text-orange-400">Contact</Link>
-          </nav>
-        </div>
-      </header>
-
+      
       {/* HERO */}
       <section className="w-full border-b border-white/10 bg-black">
         <div className="mx-auto max-w-7xl px-6 py-10 md:py-16 grid md:grid-cols-5 gap-10 items-center">
-          {/* Tekst */}
           <div className="md:col-span-2">
             <p className="text-xs tracking-widest text-orange-400/90 uppercase mb-3">
               Get in touch
@@ -88,7 +102,6 @@ export default function ContactPage() {
             </p>
           </div>
 
-          {/* Obraz */}
           <div className="md:col-span-3">
             <div className="relative w-full overflow-hidden rounded-2xl border border-white/10 aspect-[5/4] md:aspect-[4/3]">
               <Image
@@ -108,12 +121,11 @@ export default function ContactPage() {
       {/* FORM GRID */}
       <section className="w-full bg-black">
         <div className="mx-auto max-w-7xl px-6 py-10 md:py-16 grid lg:grid-cols-2 gap-6 items-stretch">
-          {/* Info / CTA mini */}
           <div className="rounded-2xl border border-white/10 bg-white/5 p-6 md:p-8">
             <h2 className="text-xl md:text-2xl font-semibold">Project details</h2>
-           <p className="mt-2 text-sm text-neutral-300">
-  The more context, the better the plan we can propose. Share goals, timeline, and any references or inspirations.
-</p>
+            <p className="mt-2 text-sm text-neutral-300">
+              The more context, the better the plan we can propose. Share goals, timeline, and any references or inspirations.
+            </p>
             <ul className="mt-5 space-y-2 text-sm text-neutral-300">
               <li>• Websites & web apps (Next.js, e-commerce, headless CMS)</li>
               <li>• Branding & UI systems</li>
@@ -126,6 +138,10 @@ export default function ContactPage() {
             <form onSubmit={handleSubmit} className="space-y-5 w-full flex flex-col">
               {/* honeypot */}
               <input name="website" type="text" autoComplete="off" tabIndex={-1} className="hidden" />
+
+              {/* anti-spam hidden fields */}
+              <input name="_createdAt" type="hidden" value={String(createdAt)} readOnly />
+              <input name="_formToken" type="hidden" value={formToken} readOnly />
 
               <input
                 name="name"
@@ -179,17 +195,14 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* WIDE CTA — identycznie jak w about (gradient stykający się ze stopką) */}
+      {/* WIDE CTA */}
       <section className="w-full bg-gradient-to-r from-orange-600/20 via-orange-500/10 to-transparent">
         <div className="mx-auto max-w-7xl px-6 py-10 md:py-14 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
           <div>
-            <h3 className="text-xl md:text-2xl font-semibold">
-  Ready to start the conversation?
-</h3>
-<p className="mt-2 text-sm text-neutral-300 max-w-prose">
-  Send us a message and we’ll get back to you within 1–2 business days with next steps.
-</p>
-
+            <h3 className="text-xl md:text-2xl font-semibold">Ready to start the conversation?</h3>
+            <p className="mt-2 text-sm text-neutral-300 max-w-prose">
+              Send us a message and we’ll get back to you within 1–2 business days with next steps.
+            </p>
           </div>
           <div className="flex gap-3">
             <Link
@@ -201,6 +214,6 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
-          </main>
+    </main>
   );
 }
