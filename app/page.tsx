@@ -5,28 +5,29 @@ import Link from "next/link";
 export default function Home() {
   return (
     <main className="min-h-screen bg-black text-white flex flex-col">
-
       {/* ===== MOSAIC ===== */}
-      {/* Bez bocznych marginesów; md+: wypełnia przestrzeń do stopki */}
       <section className="w-full bg-black flex flex-col px-0 md:flex-1">
         {/* RZĄD 1 */}
         <div className="grid grid-cols-1 md:grid-cols-[1.2fr_1.6fr_1.2fr] gap-0 md:flex-1">
-          {/* LEFT (animated) */}
-          <Link href="/services/copywriting" className="group relative block overflow-hidden">
+          {/* LEFT (animated) — mobile pod CTA */}
+          <Link
+            href="/services/copywriting"
+            className="group relative block overflow-hidden order-2 md:order-1"
+          >
             <div className="relative w-full aspect-[16/9] md:aspect-auto md:h-full">
               <Image
                 src="/sample1.png"
                 alt="Copywriting"
                 fill
-                sizes="(min-width:1024px) 34vw, 50vw"
+                sizes="(min-width:1024px) 34vw, 100vw"
                 className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.12] group-hover:-translate-y-0.5 group-hover:brightness-110 will-change-transform"
                 priority
               />
             </div>
           </Link>
 
-          {/* CENTER (bigger on md+, static, CTA na obrazie) */}
-          <div className="relative w-full aspect-[16/9] md:aspect-auto md:h-full overflow-hidden bg-black">
+          {/* CENTER (CTA) — mobile na górze */}
+          <div className="relative w-full aspect-[16/9] md:aspect-auto md:h-full overflow-hidden bg-black order-1 md:order-2">
             <Image
               src="/redhn.png"
               alt="RedHoodNova — Creative & Tech Studio"
@@ -43,14 +44,17 @@ export default function Home() {
             </Link>
           </div>
 
-          {/* RIGHT (animated) */}
-          <Link href="/services/graphic-design" className="group relative block overflow-hidden">
+          {/* RIGHT (animated) — mobile pod LEFT */}
+          <Link
+            href="/services/graphic-design"
+            className="group relative block overflow-hidden order-3 md:order-3"
+          >
             <div className="relative w-full aspect-[16/9] md:aspect-auto md:h-full">
               <Image
                 src="/sample2.png"
                 alt="Graphic Design"
                 fill
-                sizes="(min-width:1024px) 34vw, 50vw"
+                sizes="(min-width:1024px) 34vw, 100vw"
                 className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.12] group-hover:-translate-y-0.5 group-hover:brightness-110 will-change-transform"
                 priority
               />
@@ -58,8 +62,8 @@ export default function Home() {
           </Link>
         </div>
 
-        {/* RZĄD 2: 4 kafle — mobile 2×2, md+ 4 w rządzie; stykają się i dochodzą do stopki */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-0 md:flex-1">
+        {/* RZĄD 2: 4 kafle — mobile 1×4 (jeden pod drugim), md+ 4 w rządzie */}
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-0 md:flex-1">
           {[
             { src: "/sample3.png", alt: "Web Design & Development", href: "/services/web" },
             { src: "/sample4.png", alt: "E-commerce",               href: "/services/ecommerce" },
@@ -67,12 +71,12 @@ export default function Home() {
             { src: "/sample6.png", alt: "SEO & Marketing",          href: "/services/seo" },
           ].map((t) => (
             <Link key={t.src} href={t.href} className="group relative block overflow-hidden">
-              <div className="relative w-full aspect-square md:aspect-auto md:h-full">
+              <div className="relative w-full aspect-[16/9] md:aspect-auto md:h-full">
                 <Image
                   src={t.src}
                   alt={t.alt}
                   fill
-                  sizes="(min-width:1024px) 25vw, 50vw"
+                  sizes="(min-width:1024px) 25vw, 100vw"
                   className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.12] group-hover:-translate-y-0.5 group-hover:brightness-110 will-change-transform"
                 />
               </div>
@@ -80,8 +84,6 @@ export default function Home() {
           ))}
         </div>
       </section>
-          </main>
+    </main>
   );
 }
-
-      

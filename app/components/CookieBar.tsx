@@ -1,18 +1,45 @@
 "use client";
 import { useEffect, useState } from "react";
 
+declare global {
+  interface Window {
+    enableGA?: () => void;
+    gtag?: (...args: any[]) => void;
+  }
+}
+
 export default function CookieBar() {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    const consent = localStorage.getItem("rhn_cookie_consent_v1");
-    if (!consent) setOpen(true);
+    // pokaż baner tylko gdy nie ma naszej zgody/odmowy
+    const v = localStorage.getItem("rhn_cookie_consent_v1");
+    if (!v) setOpen(true);
   }, []);
 
   if (!open) return null;
 
   function save(value: "accepted" | "rejected") {
+    // nasz klucz do wersjonowania banera
     localStorage.setItem("rhn_cookie_consent_v1", value);
+
+    // klucz zgodny z logiką w layout.tsx (tam czytasz rhn-consent)
+    localStorage.setItem(
+      "rhn-consent",
+      JSON.stringify({ analytics: value === "accepted" })
+    );
+
+    // aktualizacja trybu zgody (jeśli używasz Consent Mode)
+    if (value === "accepted") {
+      // jeśli layout zdefiniował helpera – uruchomi GA i/lub consent update
+      window.enableGA?.();
+      // dodatkowo (bezpiecznie): wymuś granted
+      window.gtag?.("consent", "update", { analytics_storage: "granted" });
+    } else {
+      window.gtag?.("consent", "update", { analytics_storage: "denied" });
+    }
+
+    // własny event – jeśli gdzieś nasłuchujesz
     window.dispatchEvent(new CustomEvent("rhn:consent", { detail: value }));
     setOpen(false);
   }
