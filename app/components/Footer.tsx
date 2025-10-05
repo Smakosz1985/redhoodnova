@@ -12,6 +12,10 @@ export default function Footer() {
             Privacy & Cookies
           </Link>
           <span className="text-neutral-600">|</span>
+          <Link href="/privacy-choices" className="hover:text-orange-300 transition">
+            Privacy Choices
+          </Link>
+          <span className="text-neutral-600">|</span>
           <Link href="/terms" className="hover:text-orange-300 transition">
             Terms of Service
           </Link>
