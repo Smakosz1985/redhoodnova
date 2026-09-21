@@ -8,8 +8,8 @@ export default function Home() {
       {/* ===== MOSAIC ===== */}
       <section className="w-full bg-black flex flex-col px-0 md:flex-1">
         {/* RZĄD 1 */}
-        <div className="grid grid-cols-1 md:grid-cols-[1.2fr_1.6fr_1.2fr] gap-0 md:flex-1">
-          {/* LEFT (animated) — mobile pod CTA */}
+        <div className="grid grid-cols-1 md:grid-cols-[1.4fr_1.2fr_1.4fr] gap-0 md:flex-1">
+          {/* LEFT (animated) */}
           <Link
             href="/services/copywriting"
             className="group relative block overflow-hidden order-2 md:order-1"
@@ -19,34 +19,34 @@ export default function Home() {
                 src="/sample1.png"
                 alt="Copywriting"
                 fill
-                sizes="(min-width:1024px) 34vw, 100vw"
+                sizes="(min-width:1024px) 38vw, 100vw"
                 className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.12] group-hover:-translate-y-0.5 group-hover:brightness-110 will-change-transform"
                 priority
               />
             </div>
           </Link>
 
-          {/* CENTER (CTA) — mobile na górze */}
-          <div className="relative w-full aspect-[16/9] md:aspect-auto md:h-full overflow-hidden bg-black flex flex-col items-center justify-center p-6 order-1 md:order-2">
-            <div className="relative w-40 h-40 md:w-56 md:h-56 mb-2">
+          {/* CENTER (CTA) — węższy kafel, duże, wyraziste logo */}
+          <div className="relative w-full aspect-[16/9] md:aspect-auto md:h-full overflow-hidden bg-black flex flex-col items-center justify-center p-4 md:p-6 order-1 md:order-2">
+            <div className="relative w-56 h-40 md:w-72 md:h-48 mb-3">
               <Image
                 src="/logo.png"
                 alt="AeroFlux Studio — Creative & Tech Studio"
                 fill
-                sizes="(min-width:1024px) 30vw, 60vw"
-                className="object-contain"
+                sizes="(min-width:1024px) 35vw, 70vw"
+                className="object-contain drop-shadow-2xl"
                 priority
               />
             </div>
             <Link
               href="/contact"
-              className="relative z-10 rounded-2xl border border-white/30 px-4 py-2 text-xs md:text-sm font-medium text-white hover:bg-white/10 transition"
+              className="relative z-10 rounded-2xl border border-white/40 px-5 py-2 text-xs md:text-sm font-medium text-white hover:bg-white/10 transition"
             >
               Get a Quote
             </Link>
           </div>
 
-          {/* RIGHT (animated) — mobile pod LEFT */}
+          {/* RIGHT (animated) */}
           <Link
             href="/services/graphic-design"
             className="group relative block overflow-hidden order-3 md:order-3"
@@ -56,7 +56,7 @@ export default function Home() {
                 src="/sample2.png"
                 alt="Graphic Design"
                 fill
-                sizes="(min-width:1024px) 34vw, 100vw"
+                sizes="(min-width:1024px) 38vw, 100vw"
                 className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.12] group-hover:-translate-y-0.5 group-hover:brightness-110 will-change-transform"
                 priority
               />
@@ -64,7 +64,7 @@ export default function Home() {
           </Link>
         </div>
 
-        {/* RZĄD 2: 4 kafle — mobile 1×4 (jeden pod drugim), md+ 4 w rządzie */}
+        {/* RZĄD 2: 4 kafle */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-0 md:flex-1">
           {[
             { src: "/sample3.png", alt: "Web Design & Development", href: "/services/web" },
