@@ -9,20 +9,30 @@ export default function Home() {
       <section className="w-full bg-black flex flex-col px-0 md:flex-1">
         {/* RZĄD 1 */}
         <div className="grid grid-cols-1 md:grid-cols-[1.4fr_1fr_1.4fr] gap-0 md:flex-1">
-          {/* LEFT (Service 1) */}
+          {/* LEFT (animated) */}
           <Link
             href="/services/copywriting"
-            className="group relative block overflow-hidden bg-neutral-950 border-r border-b border-neutral-800 p-8 flex flex-col justify-end order-2 md:order-1 transition hover:bg-neutral-900"
+            className="group relative block overflow-hidden order-2 md:order-1"
           >
-            <span className="text-xs uppercase tracking-widest text-neutral-400 mb-2">01 / Service</span>
-            <h3 className="text-xl md:text-2xl font-bold tracking-tight text-white group-hover:text-neutral-200 transition">
-              Copywriting & Content
-            </h3>
-            <p className="text-sm text-neutral-400 mt-2">Strategic words that convert and build brand authority.</p>
+            <div className="relative w-full aspect-[16/9] md:aspect-auto md:h-full">
+              <Image
+                src="/sample1.png"
+                alt="Copywriting"
+                fill
+                sizes="(min-width:1024px) 38vw, 100vw"
+                className="object-cover grayscale contrast-125 brightness-75 transition-transform duration-500 ease-out group-hover:scale-[1.12] group-hover:brightness-100 will-change-transform"
+                priority
+              />
+              <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition" />
+              <div className="absolute bottom-6 left-6 z-10">
+                <span className="text-xs uppercase tracking-widest text-neutral-400 block mb-1">01 / Service</span>
+                <h3 className="text-lg font-bold text-white">Copywriting & Content</h3>
+              </div>
+            </div>
           </Link>
 
           {/* CENTER (CTA) — logo i przycisk */}
-          <div className="relative w-full aspect-[16/9] md:aspect-auto md:h-full bg-black border-b border-neutral-800 flex flex-col items-center justify-center p-6 order-1 md:order-2">
+          <div className="relative w-full aspect-[16/9] md:aspect-auto md:h-full bg-black flex flex-col items-center justify-center p-6 order-1 md:order-2 border-y md:border-y-0 md:border-x border-neutral-800">
             <div className="flex items-center justify-center mb-4">
               <Image
                 src="/logo.png"
@@ -41,40 +51,51 @@ export default function Home() {
             </Link>
           </div>
 
-          {/* RIGHT (Service 2) */}
+          {/* RIGHT (animated) */}
           <Link
             href="/services/graphic-design"
-            className="group relative block overflow-hidden bg-neutral-950 border-l border-b border-neutral-800 p-8 flex flex-col justify-end order-3 md:order-3 transition hover:bg-neutral-900"
+            className="group relative block overflow-hidden order-3 md:order-3"
           >
-            <span className="text-xs uppercase tracking-widest text-neutral-400 mb-2">02 / Service</span>
-            <h3 className="text-xl md:text-2xl font-bold tracking-tight text-white group-hover:text-neutral-200 transition">
-              Graphic Design
-            </h3>
-            <p className="text-sm text-neutral-400 mt-2">Unique visual identity and high-impact digital design.</p>
+            <div className="relative w-full aspect-[16/9] md:aspect-auto md:h-full">
+              <Image
+                src="/sample2.png"
+                alt="Graphic Design"
+                fill
+                sizes="(min-width:1024px) 38vw, 100vw"
+                className="object-cover grayscale contrast-125 brightness-75 transition-transform duration-500 ease-out group-hover:scale-[1.12] group-hover:brightness-100 will-change-transform"
+                priority
+              />
+              <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition" />
+              <div className="absolute bottom-6 left-6 z-10">
+                <span className="text-xs uppercase tracking-widest text-neutral-400 block mb-1">02 / Service</span>
+                <h3 className="text-lg font-bold text-white">Graphic Design</h3>
+              </div>
+            </div>
           </Link>
         </div>
 
-        {/* RZĄD 2: 4 kafle usługowe */}
+        {/* RZĄD 2: 4 kafle */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-0 md:flex-1">
           {[
-            { title: "Web Design & Dev", desc: "Lightning-fast, modern websites and web applications.", href: "/services/web" },
-            { title: "E-commerce", desc: "High-converting online stores built for scale.", href: "/services/ecommerce" },
-            { title: "Branding", desc: "Comprehensive brand identity and strategic positioning.", href: "/services/branding" },
-            { title: "SEO & Marketing", desc: "Search engine visibility and digital growth strategies.", href: "/services/seo" },
+            { src: "/sample3.png", alt: "Web Design & Development", href: "/services/web", title: "Web Design & Dev" },
+            { src: "/sample4.png", alt: "E-commerce",               href: "/services/ecommerce", title: "E-commerce" },
+            { src: "/sample5.png", alt: "Branding",                 href: "/services/branding", title: "Branding" },
+            { src: "/sample6.png", alt: "SEO & Marketing",          href: "/services/seo", title: "SEO & Marketing" },
           ].map((t, idx) => (
-            <Link 
-              key={t.title} 
-              href={t.href} 
-              className="group relative block overflow-hidden bg-black border-r border-b border-neutral-800 p-8 flex flex-col justify-between transition hover:bg-neutral-950 min-h-[200px] md:min-h-0"
-            >
-              <span className="text-xs text-neutral-500">0{idx + 3}</span>
-              <div>
-                <h3 className="text-lg font-semibold text-white group-hover:text-neutral-200 transition mb-2">
-                  {t.title}
-                </h3>
-                <p className="text-xs text-neutral-400 leading-relaxed">
-                  {t.desc}
-                </p>
+            <Link key={t.src} href={t.href} className="group relative block overflow-hidden">
+              <div className="relative w-full aspect-[16/9] md:aspect-auto md:h-full">
+                <Image
+                  src={t.src}
+                  alt={t.alt}
+                  fill
+                  sizes="(min-width:1024px) 25vw, 100vw"
+                  className="object-cover grayscale contrast-125 brightness-75 transition-transform duration-500 ease-out group-hover:scale-[1.12] group-hover:brightness-100 will-change-transform"
+                />
+                <div className="absolute inset-0 bg-black/30 group-hover:bg-transparent transition" />
+                <div className="absolute bottom-6 left-6 z-10">
+                  <span className="text-xs uppercase tracking-widest text-neutral-400 block mb-1">0{idx + 3} / Service</span>
+                  <h3 className="text-lg font-bold text-white">{t.title}</h3>
+                </div>
               </div>
             </Link>
           ))}
