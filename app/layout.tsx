@@ -7,8 +7,13 @@ import CookieBar from "./components/CookieBar";
 import AnalyticsGate from "./components/AnalyticsGate";
 
 export const metadata: Metadata = {
+<<<<<<< HEAD
   title: "AeroFlux Studio — Web Design, Branding & Graphics",
   description: "Creative & Tech Studio crafting custom websites, logos, graphic design, and digital experiences.",
+=======
+  title: "RedHoodNova — Web Design & Branding",
+  description: "Creative & Tech Studio based in the UK.",
+>>>>>>> 590acced6bad0f2d432420304b579457ea81b0dd
 };
 
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID; // np. G-XXXXXXX
@@ -34,10 +39,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 (function () {
                   function hasConsent() {
                     try {
+<<<<<<< HEAD
                       var raw = localStorage.getItem('af-consent');
                       if (raw) { var json = JSON.parse(raw); return !!(json && json.analytics); }
                     } catch (_) {}
                     return localStorage.getItem('af-cookie') === 'accepted';
+=======
+                      var raw = localStorage.getItem('rhn-consent');
+                      if (raw) { var json = JSON.parse(raw); return !!(json && json.analytics); }
+                    } catch (_) {}
+                    return localStorage.getItem('rhn-cookie') === 'accepted';
+>>>>>>> 590acced6bad0f2d432420304b579457ea81b0dd
                   }
 
                   function initGA() {
@@ -70,7 +82,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                     initGA();
                     window.gtag && window.gtag('consent', 'update', { analytics_storage: 'granted' });
                     sendPageView(); // pierwszy page_view po akceptacji
+<<<<<<< HEAD
                     window.dispatchEvent(new CustomEvent('af:consent', { detail: 'accepted' }));
+=======
+                    window.dispatchEvent(new CustomEvent('rhn:consent', { detail: 'accepted' }));
+>>>>>>> 590acced6bad0f2d432420304b579457ea81b0dd
                   };
                 })();
               `}
@@ -81,8 +97,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </>
         ) : null}
 
+<<<<<<< HEAD
+=======
+        {/* Upewnij się, że w CookieBar po "Accept" wołasz: window.enableGA?.() */}
+>>>>>>> 590acced6bad0f2d432420304b579457ea81b0dd
         <CookieBar />
       </body>
     </html>
   );
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 590acced6bad0f2d432420304b579457ea81b0dd

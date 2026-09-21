@@ -29,8 +29,13 @@ export default function Home() {
           {/* CENTER (CTA) — mobile na górze */}
           <div className="relative w-full aspect-[16/9] md:aspect-auto md:h-full overflow-hidden bg-black order-1 md:order-2">
             <Image
+<<<<<<< HEAD
               src="/logo.png"
               alt="AeroFlux Studio — Creative & Tech Studio"
+=======
+              src="/redhn.png"
+              alt="RedHoodNova — Creative & Tech Studio"
+>>>>>>> 590acced6bad0f2d432420304b579457ea81b0dd
               fill
               sizes="(min-width:1024px) 40vw, 100vw"
               className="object-cover"
@@ -38,7 +43,11 @@ export default function Home() {
             />
             <Link
               href="/contact"
+<<<<<<< HEAD
               className="absolute left-4 bottom-4 md:left-6 md:bottom-6 z-10 rounded-2xl border border-white/30 px-3 py-1.5 md:px-4 md:py-2 text-xs md:text-sm font-medium text-white hover:bg-white/10 transition"
+=======
+              className="absolute left-4 bottom-4 md:left-6 md:bottom-6 z-10 rounded-2xl border border-orange-500/70 px-3 py-1.5 md:px-4 md:py-2 text-xs md:text-sm font-medium text-orange-300 hover:bg-orange-500/10 transition"
+>>>>>>> 590acced6bad0f2d432420304b579457ea81b0dd
             >
               Get a Quote
             </Link>
@@ -86,4 +95,8 @@ export default function Home() {
       </section>
     </main>
   );
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 590acced6bad0f2d432420304b579457ea81b0dd
