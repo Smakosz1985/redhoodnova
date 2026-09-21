@@ -9,93 +9,74 @@ export default function Home() {
       <section className="w-full bg-black flex flex-col px-0 md:flex-1">
         {/* RZĄD 1 */}
         <div className="grid grid-cols-1 md:grid-cols-[1.4fr_1fr_1.4fr] gap-0 md:flex-1">
-          {/* LEFT (animated) */}
+          {/* LEFT (Service 1) */}
           <Link
             href="/services/copywriting"
-            className="group relative block overflow-hidden order-2 md:order-1"
+            className="group relative overflow-hidden bg-neutral-950 border-r border-b border-neutral-800 p-8 md:p-12 flex flex-col justify-end order-2 md:order-1 transition-all hover:bg-neutral-900 hover:border-cyan-500/50"
           >
-            <div className="relative w-full aspect-[16/9] md:aspect-auto md:h-full">
-              <Image
-                src="/sample1.png"
-                alt="Copywriting"
-                fill
-                sizes="(min-width:1024px) 38vw, 100vw"
-                className="object-cover brightness-90 contrast-110 saturate-[0.8] transition-transform duration-500 ease-out group-hover:scale-[1.12] group-hover:brightness-100 will-change-transform"
-                priority
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent group-hover:from-black/60 transition" />
-              <div className="absolute bottom-6 left-6 z-10">
-                <span className="text-xs uppercase tracking-widest text-cyan-400 font-medium block mb-1">01 / Service</span>
-                <h3 className="text-lg font-bold text-white tracking-wide">Copywriting & Content</h3>
-              </div>
-            </div>
+            <div className="absolute top-0 right-0 w-32 h-32 bg-cyan-500/5 rounded-full blur-2xl group-hover:bg-cyan-500/10 transition" />
+            <span className="text-xs uppercase tracking-widest text-cyan-400 font-medium mb-3">01 / Service</span>
+            <h3 className="text-xl md:text-2xl font-bold tracking-tight text-white group-hover:text-cyan-200 transition">
+              Copywriting & Content
+            </h3>
+            <p className="text-sm text-neutral-400 mt-2">Strategic words that convert and build brand authority.</p>
           </Link>
 
-          {/* CENTER (CTA) — logo i przycisk */}
+          {/* CENTER (CTA) — Czyste tło, zero ramek, wielkie logo */}
           <div className="relative w-full aspect-[16/9] md:aspect-auto md:h-full bg-black flex flex-col items-center justify-center p-6 order-1 md:order-2 border-y md:border-y-0 md:border-x border-neutral-800">
-            <div className="flex items-center justify-center mb-4">
+            <div className="flex items-center justify-center mb-6">
               <Image
                 src="/logo.png"
-                alt="AeroFlux Studio — Creative & Tech Studio"
-                width={260}
-                height={100}
-                className="w-48 md:w-64 h-auto object-contain drop-shadow-[0_0_25px_rgba(255,255,255,0.15)]"
+                alt="AeroFlux Studio"
+                width={280}
+                height={110}
+                className="w-56 md:w-72 h-auto object-contain"
                 priority
               />
             </div>
             <Link
               href="/contact"
-              className="rounded-2xl border border-cyan-500/40 bg-cyan-950/20 px-5 py-2 text-xs md:text-sm font-medium text-cyan-200 hover:bg-cyan-500/20 hover:border-cyan-400 transition shadow-[0_0_15px_rgba(6,182,212,0.15)]"
+              className="rounded-xl border border-cyan-500/40 bg-cyan-950/30 px-6 py-2.5 text-xs md:text-sm font-medium text-cyan-200 hover:bg-cyan-500/20 hover:border-cyan-400 transition shadow-[0_0_20px_rgba(6,182,212,0.1)]"
             >
               Get a Quote
             </Link>
           </div>
 
-          {/* RIGHT (animated) */}
+          {/* RIGHT (Service 2) */}
           <Link
             href="/services/graphic-design"
-            className="group relative block overflow-hidden order-3 md:order-3"
+            className="group relative overflow-hidden bg-neutral-950 border-l border-b border-neutral-800 p-8 md:p-12 flex flex-col justify-end order-3 md:order-3 transition-all hover:bg-neutral-900 hover:border-cyan-500/50"
           >
-            <div className="relative w-full aspect-[16/9] md:aspect-auto md:h-full">
-              <Image
-                src="/sample2.png"
-                alt="Graphic Design"
-                fill
-                sizes="(min-width:1024px) 38vw, 100vw"
-                className="object-cover brightness-90 contrast-110 saturate-[0.8] transition-transform duration-500 ease-out group-hover:scale-[1.12] group-hover:brightness-100 will-change-transform"
-                priority
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent group-hover:from-black/60 transition" />
-              <div className="absolute bottom-6 left-6 z-10">
-                <span className="text-xs uppercase tracking-widest text-cyan-400 font-medium block mb-1">02 / Service</span>
-                <h3 className="text-lg font-bold text-white tracking-wide">Graphic Design</h3>
-              </div>
-            </div>
+            <div className="absolute top-0 right-0 w-32 h-32 bg-cyan-500/5 rounded-full blur-2xl group-hover:bg-cyan-500/10 transition" />
+            <span className="text-xs uppercase tracking-widest text-cyan-400 font-medium mb-3">02 / Service</span>
+            <h3 className="text-xl md:text-2xl font-bold tracking-tight text-white group-hover:text-cyan-200 transition">
+              Graphic Design
+            </h3>
+            <p className="text-sm text-neutral-400 mt-2">Unique visual identity and high-impact digital design.</p>
           </Link>
         </div>
 
-        {/* RZĄD 2: 4 kafle */}
+        {/* RZĄD 2: 4 kafle usługowe */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-0 md:flex-1">
           {[
-            { src: "/sample3.png", alt: "Web Design & Development", href: "/services/web", title: "Web Design & Dev" },
-            { src: "/sample4.png", alt: "E-commerce",               href: "/services/ecommerce", title: "E-commerce" },
-            { src: "/sample5.png", alt: "Branding",                 href: "/services/branding", title: "Branding" },
-            { src: "/sample6.png", alt: "SEO & Marketing",          href: "/services/seo", title: "SEO & Marketing" },
+            { title: "Web Design & Dev", desc: "Lightning-fast, modern websites and applications.", href: "/services/web" },
+            { title: "E-commerce", desc: "High-converting online stores built for scale.", href: "/services/ecommerce" },
+            { title: "Branding", desc: "Comprehensive brand identity and strategic positioning.", href: "/services/branding" },
+            { title: "SEO & Marketing", desc: "Search engine visibility and digital growth strategies.", href: "/services/seo" },
           ].map((t, idx) => (
-            <Link key={t.src} href={t.href} className="group relative block overflow-hidden">
-              <div className="relative w-full aspect-[16/9] md:aspect-auto md:h-full">
-                <Image
-                  src={t.src}
-                  alt={t.alt}
-                  fill
-                  sizes="(min-width:1024px) 25vw, 100vw"
-                  className="object-cover brightness-90 contrast-110 saturate-[0.8] transition-transform duration-500 ease-out group-hover:scale-[1.12] group-hover:brightness-100 will-change-transform"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent group-hover:from-black/60 transition" />
-                <div className="absolute bottom-6 left-6 z-10">
-                  <span className="text-xs uppercase tracking-widest text-cyan-400 font-medium block mb-1">0{idx + 3} / Service</span>
-                  <h3 className="text-lg font-bold text-white tracking-wide">{t.title}</h3>
-                </div>
+            <Link 
+              key={t.title} 
+              href={t.href} 
+              className="group relative overflow-hidden bg-black border-r border-b border-neutral-800 p-8 flex flex-col justify-between transition-all hover:bg-neutral-950 hover:border-cyan-500/50 min-h-[200px] md:min-h-0"
+            >
+              <span className="text-xs text-neutral-500 font-mono">0{idx + 3}</span>
+              <div>
+                <h3 className="text-lg font-semibold text-white group-hover:text-cyan-200 transition mb-2">
+                  {t.title}
+                </h3>
+                <p className="text-xs text-neutral-400 leading-relaxed">
+                  {t.desc}
+                </p>
               </div>
             </Link>
           ))}
