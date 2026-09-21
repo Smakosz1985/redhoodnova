@@ -1,0 +1,89 @@
+// app/page.tsx
+import Image from "next/image";
+import Link from "next/link";
+
+export default function Home() {
+  return (
+    <main className="min-h-screen bg-black text-white flex flex-col">
+      {/* ===== MOSAIC ===== */}
+      <section className="w-full bg-black flex flex-col px-0 md:flex-1">
+        {/* RZĄD 1 */}
+        <div className="grid grid-cols-1 md:grid-cols-[1.2fr_1.6fr_1.2fr] gap-0 md:flex-1">
+          {/* LEFT (animated) — mobile pod CTA */}
+          <Link
+            href="/services/copywriting"
+            className="group relative block overflow-hidden order-2 md:order-1"
+          >
+            <div className="relative w-full aspect-[16/9] md:aspect-auto md:h-full">
+              <Image
+                src="/sample1.png"
+                alt="Copywriting"
+                fill
+                sizes="(min-width:1024px) 34vw, 100vw"
+                className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.12] group-hover:-translate-y-0.5 group-hover:brightness-110 will-change-transform"
+                priority
+              />
+            </div>
+          </Link>
+
+          {/* CENTER (CTA) — mobile na górze */}
+          <div className="relative w-full aspect-[16/9] md:aspect-auto md:h-full overflow-hidden bg-black order-1 md:order-2">
+            <Image
+              src="/logo.png"
+              alt="AeroFlux Studio — Creative & Tech Studio"
+              fill
+              sizes="(min-width:1024px) 40vw, 100vw"
+              className="object-cover"
+              priority
+            />
+            <Link
+              href="/contact"
+              className="absolute left-4 bottom-4 md:left-6 md:bottom-6 z-10 rounded-2xl border border-white/30 px-3 py-1.5 md:px-4 md:py-2 text-xs md:text-sm font-medium text-white hover:bg-white/10 transition"
+            >
+              Get a Quote
+            </Link>
+          </div>
+
+          {/* RIGHT (animated) — mobile pod LEFT */}
+          <Link
+            href="/services/graphic-design"
+            className="group relative block overflow-hidden order-3 md:order-3"
+          >
+            <div className="relative w-full aspect-[16/9] md:aspect-auto md:h-full">
+              <Image
+                src="/sample2.png"
+                alt="Graphic Design"
+                fill
+                sizes="(min-width:1024px) 34vw, 100vw"
+                className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.12] group-hover:-translate-y-0.5 group-hover:brightness-110 will-change-transform"
+                priority
+              />
+            </div>
+          </Link>
+        </div>
+
+        {/* RZĄD 2: 4 kafle — mobile 1×4 (jeden pod drugim), md+ 4 w rządzie */}
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-0 md:flex-1">
+          {[
+            { src: "/sample3.png", alt: "Web Design & Development", href: "/services/web" },
+            { src: "/sample4.png", alt: "E-commerce",               href: "/services/ecommerce" },
+            { src: "/sample5.png", alt: "Branding",                 href: "/services/branding" },
+            { src: "/sample6.png", alt: "SEO & Marketing",          href: "/services/seo" },
+          ].map((t) => (
+            <Link key={t.src} href={t.href} className="group relative block overflow-hidden">
+              <div className="relative w-full aspect-[16/9] md:aspect-auto md:h-full">
+                <Image
+                  src={t.src}
+                  alt={t.alt}
+                  fill
+                  sizes="(min-width:1024px) 25vw, 100vw"
+                  className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.12] group-hover:-translate-y-0.5 group-hover:brightness-110 will-change-transform"
+                />
+              </div>
+            </Link>
+          ))}
+        </div>
+      </section>
+    </main>
+  );
+}
