@@ -5,7 +5,7 @@ export default function Footer() {
     <footer className="w-full border-t border-white/10 bg-black">
       <div className="mx-auto max-w-7xl px-6 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
         <p className="text-base md:text-lg font-semibold text-white">
-          Based in UK · <span className="text-neutral-400">Available worldwide</span>
+          Based in Germany · <span className="text-neutral-400">Available worldwide</span>
         </p>
         <nav className="text-sm text-neutral-400 flex items-center gap-4">
           <Link href="/privacy" className="hover:text-white transition">

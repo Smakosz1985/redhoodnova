@@ -27,18 +27,20 @@ export default function Home() {
           </Link>
 
           {/* CENTER (CTA) — mobile na górze */}
-          <div className="relative w-full aspect-[16/9] md:aspect-auto md:h-full overflow-hidden bg-black order-1 md:order-2">
-            <Image
-              src="/logo.png"
-              alt="AeroFlux Studio — Creative & Tech Studio"
-              fill
-              sizes="(min-width:1024px) 40vw, 100vw"
-              className="object-cover"
-              priority
-            />
+          <div className="relative w-full aspect-[16/9] md:aspect-auto md:h-full overflow-hidden bg-black flex flex-col items-center justify-center p-6 order-1 md:order-2">
+            <div className="relative w-40 h-40 md:w-56 md:h-56 mb-2">
+              <Image
+                src="/logo.png"
+                alt="AeroFlux Studio — Creative & Tech Studio"
+                fill
+                sizes="(min-width:1024px) 30vw, 60vw"
+                className="object-contain"
+                priority
+              />
+            </div>
             <Link
               href="/contact"
-              className="absolute left-4 bottom-4 md:left-6 md:bottom-6 z-10 rounded-2xl border border-white/30 px-3 py-1.5 md:px-4 md:py-2 text-xs md:text-sm font-medium text-white hover:bg-white/10 transition"
+              className="relative z-10 rounded-2xl border border-white/30 px-4 py-2 text-xs md:text-sm font-medium text-white hover:bg-white/10 transition"
             >
               Get a Quote
             </Link>
