@@ -14,11 +14,11 @@ export default function Home() {
             href="/services/copywriting"
             className="group relative block overflow-hidden bg-neutral-950 border-r border-b border-neutral-800 p-8 flex flex-col justify-end order-2 md:order-1 transition hover:bg-neutral-900"
           >
-            <span className="text-xs uppercase tracking-widest text-neutral-400 mb-2">01 / Usługa</span>
+            <span className="text-xs uppercase tracking-widest text-neutral-400 mb-2">01 / Service</span>
             <h3 className="text-xl md:text-2xl font-bold tracking-tight text-white group-hover:text-neutral-200 transition">
               Copywriting & Content
             </h3>
-            <p className="text-sm text-neutral-400 mt-2">Słowa, które sprzedają i budują autorytet marki.</p>
+            <p className="text-sm text-neutral-400 mt-2">Strategic words that convert and build brand authority.</p>
           </Link>
 
           {/* CENTER (CTA) — logo i przycisk */}
@@ -46,21 +46,21 @@ export default function Home() {
             href="/services/graphic-design"
             className="group relative block overflow-hidden bg-neutral-950 border-l border-b border-neutral-800 p-8 flex flex-col justify-end order-3 md:order-3 transition hover:bg-neutral-900"
           >
-            <span className="text-xs uppercase tracking-widest text-neutral-400 mb-2">02 / Usługa</span>
+            <span className="text-xs uppercase tracking-widest text-neutral-400 mb-2">02 / Service</span>
             <h3 className="text-xl md:text-2xl font-bold tracking-tight text-white group-hover:text-neutral-200 transition">
               Graphic Design
             </h3>
-            <p className="text-sm text-neutral-400 mt-2">Unikalna identyfikacja wizualna i kreacje graficzne.</p>
+            <p className="text-sm text-neutral-400 mt-2">Unique visual identity and high-impact digital design.</p>
           </Link>
         </div>
 
         {/* RZĄD 2: 4 kafle usługowe */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-0 md:flex-1">
           {[
-            { title: "Web Design & Dev", desc: "Nowoczesne, szybkie strony i aplikacje internetowe.", href: "/services/web" },
-            { title: "E-commerce", desc: "Sklepy internetowe zoptymalizowane pod konwersję.", href: "/services/ecommerce" },
-            { title: "Branding", desc: "Kompleksowa tożsamość i strategie marek.", href: "/services/branding" },
-            { title: "SEO & Marketing", desc: "Widoczność w wyszukiwarkach i skalowanie biznesu.", href: "/services/seo" },
+            { title: "Web Design & Dev", desc: "Lightning-fast, modern websites and web applications.", href: "/services/web" },
+            { title: "E-commerce", desc: "High-converting online stores built for scale.", href: "/services/ecommerce" },
+            { title: "Branding", desc: "Comprehensive brand identity and strategic positioning.", href: "/services/branding" },
+            { title: "SEO & Marketing", desc: "Search engine visibility and digital growth strategies.", href: "/services/seo" },
           ].map((t, idx) => (
             <Link 
               key={t.title} 
