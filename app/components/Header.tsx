@@ -23,19 +23,11 @@ export default function Header() {
         {/* LOGO -> klikalne do Home */}
         <Link href="/" className="shrink-0" aria-label="Go to homepage">
           <Image
-<<<<<<< HEAD
             src="/logo.png"
             alt="AeroFlux Studio"
             width={160}
             height={160}
             className="h-10 w-auto md:h-12"
-=======
-            src="/logoRED.png"
-            alt="RedHoodNova"
-            width={160}
-            height={160}
-            className="h-14 w-auto md:h-16"
->>>>>>> 590acced6bad0f2d432420304b579457ea81b0dd
             priority
           />
         </Link>
@@ -50,13 +42,8 @@ export default function Header() {
                 href={l.href}
                 className={
                   active
-<<<<<<< HEAD
                     ? "text-white font-semibold"
                     : "text-neutral-400 hover:text-white transition"
-=======
-                    ? "text-orange-400"
-                    : "hover:text-orange-400 transition"
->>>>>>> 590acced6bad0f2d432420304b579457ea81b0dd
                 }
               >
                 {l.label}
@@ -85,11 +72,7 @@ export default function Header() {
                 key={l.href}
                 href={l.href}
                 onClick={() => setOpen(false)}
-<<<<<<< HEAD
                 className={active ? "text-white font-semibold" : "text-neutral-400"}
-=======
-                className={active ? "text-orange-400" : ""}
->>>>>>> 590acced6bad0f2d432420304b579457ea81b0dd
               >
                 {l.label}
               </Link>
@@ -99,8 +82,4 @@ export default function Header() {
       )}
     </header>
   );
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 590acced6bad0f2d432420304b579457ea81b0dd

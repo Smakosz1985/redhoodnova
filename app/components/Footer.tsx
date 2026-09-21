@@ -4,7 +4,6 @@ export default function Footer() {
   return (
     <footer className="w-full border-t border-white/10 bg-black">
       <div className="mx-auto max-w-7xl px-6 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
-<<<<<<< HEAD
         <p className="text-base md:text-lg font-semibold text-white">
           Based in UK · <span className="text-neutral-400">Available worldwide</span>
         </p>
@@ -18,36 +17,13 @@ export default function Footer() {
           </Link>
           <span className="text-neutral-700">|</span>
           <Link href="/terms" className="hover:text-white transition">
-=======
-        <p className="text-base md:text-lg font-semibold text-orange-400">
-          Based in UK · <span className="text-orange-400/90">Available worldwide</span>
-        </p>
-        <nav className="text-sm text-neutral-400 flex items-center gap-4">
-          <Link href="/privacy" className="hover:text-orange-300 transition">
-            Privacy & Cookies
-          </Link>
-          <span className="text-neutral-600">|</span>
-          <Link href="/privacy-choices" className="hover:text-orange-300 transition">
-            Privacy Choices
-          </Link>
-          <span className="text-neutral-600">|</span>
-          <Link href="/terms" className="hover:text-orange-300 transition">
->>>>>>> 590acced6bad0f2d432420304b579457ea81b0dd
             Terms of Service
           </Link>
         </nav>
       </div>
       <div className="text-center text-xs text-neutral-500 pb-4">
-<<<<<<< HEAD
         © {new Date().getFullYear()} AeroFlux Studio. All rights reserved.
       </div>
     </footer>
   );
 }
-=======
-        © {new Date().getFullYear()} RedHoodNova. All rights reserved.
-      </div>
-    </footer>
-  );
-}
->>>>>>> 590acced6bad0f2d432420304b579457ea81b0dd
