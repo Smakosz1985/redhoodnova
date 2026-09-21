@@ -8,7 +8,7 @@ export default function Home() {
       {/* ===== MOSAIC ===== */}
       <section className="w-full bg-black flex flex-col px-0 md:flex-1">
         {/* RZĄD 1 */}
-        <div className="grid grid-cols-1 md:grid-cols-[1.4fr_1.2fr_1.4fr] gap-0 md:flex-1">
+        <div className="grid grid-cols-1 md:grid-cols-[1.4fr_1fr_1.4fr] gap-0 md:flex-1">
           {/* LEFT (animated) */}
           <Link
             href="/services/copywriting"
@@ -26,21 +26,21 @@ export default function Home() {
             </div>
           </Link>
 
-          {/* CENTER (CTA) — węższy kafel, duże, wyraziste logo */}
-          <div className="relative w-full aspect-[16/9] md:aspect-auto md:h-full overflow-hidden bg-black flex flex-col items-center justify-center p-4 md:p-6 order-1 md:order-2">
-            <div className="relative w-56 h-40 md:w-72 md:h-48 mb-3">
+          {/* CENTER (CTA) — absolutnie wycentrowane, duże logo */}
+          <div className="relative w-full aspect-[16/9] md:aspect-auto md:h-full bg-black flex flex-col items-center justify-center p-6 order-1 md:order-2">
+            <div className="flex items-center justify-center mb-4">
               <Image
                 src="/logo.png"
                 alt="AeroFlux Studio — Creative & Tech Studio"
-                fill
-                sizes="(min-width:1024px) 35vw, 70vw"
-                className="object-contain drop-shadow-2xl"
+                width={260}
+                height={100}
+                className="w-48 md:w-64 h-auto object-contain drop-shadow-2xl"
                 priority
               />
             </div>
             <Link
               href="/contact"
-              className="relative z-10 rounded-2xl border border-white/40 px-5 py-2 text-xs md:text-sm font-medium text-white hover:bg-white/10 transition"
+              className="rounded-2xl border border-white/40 px-5 py-2 text-xs md:text-sm font-medium text-white hover:bg-white/10 transition"
             >
               Get a Quote
             </Link>
