@@ -20,13 +20,13 @@ export default function Home() {
                 alt="Copywriting"
                 fill
                 sizes="(min-width:1024px) 38vw, 100vw"
-                className="object-cover grayscale contrast-125 brightness-75 transition-transform duration-500 ease-out group-hover:scale-[1.12] group-hover:brightness-100 will-change-transform"
+                className="object-cover brightness-90 contrast-110 saturate-[0.8] transition-transform duration-500 ease-out group-hover:scale-[1.12] group-hover:brightness-100 will-change-transform"
                 priority
               />
-              <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent group-hover:from-black/60 transition" />
               <div className="absolute bottom-6 left-6 z-10">
-                <span className="text-xs uppercase tracking-widest text-neutral-400 block mb-1">01 / Service</span>
-                <h3 className="text-lg font-bold text-white">Copywriting & Content</h3>
+                <span className="text-xs uppercase tracking-widest text-cyan-400 font-medium block mb-1">01 / Service</span>
+                <h3 className="text-lg font-bold text-white tracking-wide">Copywriting & Content</h3>
               </div>
             </div>
           </Link>
@@ -39,13 +39,13 @@ export default function Home() {
                 alt="AeroFlux Studio — Creative & Tech Studio"
                 width={260}
                 height={100}
-                className="w-48 md:w-64 h-auto object-contain drop-shadow-2xl"
+                className="w-48 md:w-64 h-auto object-contain drop-shadow-[0_0_25px_rgba(255,255,255,0.15)]"
                 priority
               />
             </div>
             <Link
               href="/contact"
-              className="rounded-2xl border border-white/40 px-5 py-2 text-xs md:text-sm font-medium text-white hover:bg-white/10 transition"
+              className="rounded-2xl border border-cyan-500/40 bg-cyan-950/20 px-5 py-2 text-xs md:text-sm font-medium text-cyan-200 hover:bg-cyan-500/20 hover:border-cyan-400 transition shadow-[0_0_15px_rgba(6,182,212,0.15)]"
             >
               Get a Quote
             </Link>
@@ -62,13 +62,13 @@ export default function Home() {
                 alt="Graphic Design"
                 fill
                 sizes="(min-width:1024px) 38vw, 100vw"
-                className="object-cover grayscale contrast-125 brightness-75 transition-transform duration-500 ease-out group-hover:scale-[1.12] group-hover:brightness-100 will-change-transform"
+                className="object-cover brightness-90 contrast-110 saturate-[0.8] transition-transform duration-500 ease-out group-hover:scale-[1.12] group-hover:brightness-100 will-change-transform"
                 priority
               />
-              <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent group-hover:from-black/60 transition" />
               <div className="absolute bottom-6 left-6 z-10">
-                <span className="text-xs uppercase tracking-widest text-neutral-400 block mb-1">02 / Service</span>
-                <h3 className="text-lg font-bold text-white">Graphic Design</h3>
+                <span className="text-xs uppercase tracking-widest text-cyan-400 font-medium block mb-1">02 / Service</span>
+                <h3 className="text-lg font-bold text-white tracking-wide">Graphic Design</h3>
               </div>
             </div>
           </Link>
@@ -89,12 +89,12 @@ export default function Home() {
                   alt={t.alt}
                   fill
                   sizes="(min-width:1024px) 25vw, 100vw"
-                  className="object-cover grayscale contrast-125 brightness-75 transition-transform duration-500 ease-out group-hover:scale-[1.12] group-hover:brightness-100 will-change-transform"
+                  className="object-cover brightness-90 contrast-110 saturate-[0.8] transition-transform duration-500 ease-out group-hover:scale-[1.12] group-hover:brightness-100 will-change-transform"
                 />
-                <div className="absolute inset-0 bg-black/30 group-hover:bg-transparent transition" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent group-hover:from-black/60 transition" />
                 <div className="absolute bottom-6 left-6 z-10">
-                  <span className="text-xs uppercase tracking-widest text-neutral-400 block mb-1">0{idx + 3} / Service</span>
-                  <h3 className="text-lg font-bold text-white">{t.title}</h3>
+                  <span className="text-xs uppercase tracking-widest text-cyan-400 font-medium block mb-1">0{idx + 3} / Service</span>
+                  <h3 className="text-lg font-bold text-white tracking-wide">{t.title}</h3>
                 </div>
               </div>
             </Link>
