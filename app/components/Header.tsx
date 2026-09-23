@@ -17,6 +17,14 @@ export default function Header() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
 
+  // Styl "Get a Quote" używany do podświetlenia linków w menu
+  const buttonStyle =
+    "rounded-xl border border-cyan-500/40 bg-cyan-950/35 px-4 py-2 text-xs md:text-sm font-medium text-cyan-200 transition shadow-[0_0_15px_rgba(6,182,212,0.12)] hover:bg-cyan-500/20 hover:border-cyan-400";
+  
+  // Zwykły styl dla elementów nieaktywnych
+  const defaultStyle =
+    "rounded-xl border border-transparent px-4 py-2 text-xs md:text-sm font-medium text-neutral-400 hover:text-cyan-200 hover:bg-cyan-950/20 hover:border-cyan-500/30 transition";
+
   return (
     <header className="sticky top-0 z-50 w-full bg-black text-white border-b border-white/10">
       <div className="mx-auto max-w-7xl px-6 py-3 flex items-center justify-between">
@@ -33,24 +41,30 @@ export default function Header() {
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden md:flex items-center gap-8 text-sm font-medium">
+        <nav className="hidden md:flex items-center gap-2 text-sm font-medium">
           {links.map((l) => {
             const active = pathname === l.href;
             return (
               <Link
                 key={l.href}
                 href={l.href}
-                className={
-                  active
-                    ? "text-white font-semibold"
-                    : "text-neutral-400 hover:text-white transition"
-                }
+                className={active ? buttonStyle : defaultStyle}
               >
                 {l.label}
               </Link>
             );
           })}
         </nav>
+
+        {/* Przycisk CTA Get a Quote */}
+        <div className="hidden md:flex items-center">
+          <Link
+            href="/contact"
+            className={buttonStyle}
+          >
+            Get a Quote
+          </Link>
+        </div>
 
         {/* Burger (mobile only) */}
         <button
@@ -64,7 +78,7 @@ export default function Header() {
 
       {/* Mobile dropdown */}
       {open && (
-        <div className="md:hidden bg-black border-t border-white/10 px-6 py-4 flex flex-col gap-4 text-sm">
+        <div className="md:hidden bg-black border-t border-white/10 px-6 py-4 flex flex-col gap-3 text-sm">
           {links.map((l) => {
             const active = pathname === l.href;
             return (
@@ -72,7 +86,7 @@ export default function Header() {
                 key={l.href}
                 href={l.href}
                 onClick={() => setOpen(false)}
-                className={active ? "text-white font-semibold" : "text-neutral-400"}
+                className={`py-2 px-3 rounded-lg ${active ? "bg-cyan-950/40 text-cyan-200 border border-cyan-500/30" : "text-neutral-400 hover:text-white"}`}
               >
                 {l.label}
               </Link>
