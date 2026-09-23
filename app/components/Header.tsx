@@ -28,7 +28,7 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 w-full bg-black text-white border-b border-white/10">
       <div className="mx-auto max-w-7xl px-6 py-3 flex items-center justify-between">
-        {/* LOGO -> klikalne do Home po lewej */}
+        {/* LOGO po lewej */}
         <Link href="/" className="shrink-0" aria-label="Go to homepage">
           <Image
             src="/logo.png"
@@ -40,9 +40,9 @@ export default function Header() {
           />
         </Link>
 
-        {/* Desktop nav + przycisk po prawej stronie */}
-        <div className="hidden md:flex items-center gap-6">
-          <nav className="flex items-center gap-2 text-sm font-medium">
+        {/* Menu i przycisk przesunięte maksymalnie na prawą stronę */}
+        <div className="hidden md:flex items-center gap-4 ml-auto">
+          <nav className="flex items-center gap-1.5 text-sm font-medium">
             {links.map((l) => {
               const active = pathname === l.href;
               return (
@@ -56,14 +56,6 @@ export default function Header() {
               );
             })}
           </nav>
-
-          {/* Oryginalny przycisk Get a Quote */}
-          <Link
-            href="/contact"
-            className={buttonStyle}
-          >
-            Get a Quote
-          </Link>
         </div>
 
         {/* Burger (mobile only) */}
@@ -92,13 +84,6 @@ export default function Header() {
               </Link>
             );
           })}
-          <Link
-            href="/contact"
-            onClick={() => setOpen(false)}
-            className="mt-2 text-center rounded-xl border border-cyan-500/40 bg-cyan-950/30 py-2.5 text-xs font-medium text-cyan-200"
-          >
-            Get a Quote
-          </Link>
         </div>
       )}
     </header>
