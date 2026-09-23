@@ -10,14 +10,14 @@ export default function Web() {
         <div className="mx-auto max-w-7xl px-6 py-10 md:py-16 grid md:grid-cols-5 gap-10 items-center">
           <div className="md:col-span-2">
             <p className="text-xs tracking-widest text-cyan-400 uppercase mb-2">
-              Service[cite: 11]
+              Service
             </p>
             <h1 className="text-3xl md:text-5xl font-semibold">
-              Web Design & Development[cite: 11]
+              Web Design & Development
             </h1>
             <p className="mt-4 text-neutral-300 max-w-prose">
               Next.js, TypeScript and clean UX. Fast builds, easy editing,
-              strong SEO.[cite: 11]
+              strong SEO.
             </p>
             <div className="mt-6 flex gap-3">
               <Link
@@ -56,19 +56,19 @@ export default function Web() {
       <section className="w-full bg-black border-b border-neutral-800">
         <div className="mx-auto max-w-7xl px-6 py-12 md:py-16 grid md:grid-cols-2 gap-8">
           <div className="rounded-2xl border border-neutral-800 bg-neutral-950 p-6 md:p-8">
-            <h2 className="text-xl md:text-2xl font-semibold">Deliverables[cite: 11]</h2>
+            <h2 className="text-xl md:text-2xl font-semibold">Deliverables</h2>
             <ul className="mt-4 space-y-2 text-sm text-neutral-300">
-              <li>• Marketing sites & landing pages[cite: 11]</li>
-              <li>• Headless CMS setup (content models, editor UX)[cite: 11]</li>
-              <li>• Performance, accessibility & SEO[cite: 11]</li>
-              <li>• Analytics & event tracking[cite: 11]</li>
+              <li>• Marketing sites & landing pages</li>
+              <li>• Headless CMS setup (content models, editor UX)</li>
+              <li>• Performance, accessibility & SEO</li>
+              <li>• Analytics & event tracking</li>
             </ul>
           </div>
           <div className="rounded-2xl border border-neutral-800 bg-neutral-950 p-6 md:p-8">
-            <h2 className="text-xl md:text-2xl font-semibold">Stack[cite: 11]</h2>
+            <h2 className="text-xl md:text-2xl font-semibold">Stack</h2>
             <p className="mt-4 text-sm text-neutral-300">
               Next.js, TypeScript, Tailwind, headless CMS, Vercel. Clean,
-              maintainable code.[cite: 11]
+              maintainable code.
             </p>
           </div>
         </div>
@@ -79,12 +79,12 @@ export default function Web() {
         <div className="mx-auto max-w-7xl px-6 py-10 md:py-14 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
           <div>
             <h3 className="text-xl md:text-2xl font-semibold">
-              Build a website that works as hard as you do.[cite: 11]
+              Build a website that works as hard as you do.
             </h3>
             <p className="mt-2 text-sm text-neutral-300 max-w-prose">
               From lightning-fast landing pages to robust CMS-driven sites — we
               design, develop and launch with performance, SEO and usability in
-              mind.[cite: 11]
+              mind.
             </p>
           </div>
           <div className="flex gap-3">

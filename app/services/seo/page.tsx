@@ -10,14 +10,14 @@ export default function SEO() {
         <div className="mx-auto max-w-7xl px-6 py-10 md:py-16 grid md:grid-cols-5 gap-10 items-center">
           <div className="md:col-span-2">
             <p className="text-xs tracking-widest text-cyan-400 uppercase mb-2">
-              Service[cite: 10]
+              Service
             </p>
             <h1 className="text-3xl md:text-5xl font-semibold">
-              SEO & Marketing[cite: 10]
+              SEO & Marketing
             </h1>
             <p className="mt-4 text-neutral-300 max-w-prose">
               Performance, technical SEO and content that actually targets
-              demand. Measured and iterated.[cite: 10]
+              demand. Measured and iterated.
             </p>
             <div className="mt-6 flex gap-3">
               <Link
@@ -56,19 +56,19 @@ export default function SEO() {
       <section className="w-full bg-black border-b border-neutral-800">
         <div className="mx-auto max-w-7xl px-6 py-12 md:py-16 grid md:grid-cols-2 gap-8">
           <div className="rounded-2xl border border-neutral-800 bg-neutral-950 p-6 md:p-8">
-            <h2 className="text-xl md:text-2xl font-semibold">Deliverables[cite: 10]</h2>
+            <h2 className="text-xl md:text-2xl font-semibold">Deliverables</h2>
             <ul className="mt-4 space-y-2 text-sm text-neutral-300">
-              <li>• Technical SEO audit & fixes[cite: 10]</li>
-              <li>• Content plan mapped to queries[cite: 10]</li>
-              <li>• On-page optimization & schema[cite: 10]</li>
-              <li>• Analytics & reporting setup[cite: 10]</li>
+              <li>• Technical SEO audit & fixes</li>
+              <li>• Content plan mapped to queries</li>
+              <li>• On-page optimization & schema</li>
+              <li>• Analytics & reporting setup</li>
             </ul>
           </div>
           <div className="rounded-2xl border border-neutral-800 bg-neutral-950 p-6 md:p-8">
-            <h2 className="text-xl md:text-2xl font-semibold">Process[cite: 10]</h2>
+            <h2 className="text-xl md:text-2xl font-semibold">Process</h2>
             <p className="mt-4 text-sm text-neutral-300">
               We start with crawl & performance. Then content & internal links.
-              No fluff, just compounding wins.[cite: 10]
+              No fluff, just compounding wins.
             </p>
           </div>
         </div>
@@ -79,11 +79,11 @@ export default function SEO() {
         <div className="mx-auto max-w-7xl px-6 py-10 md:py-14 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
           <div>
             <h3 className="text-xl md:text-2xl font-semibold">
-              Get found. Get clicks. Get results.[cite: 10]
+              Get found. Get clicks. Get results.
             </h3>
             <p className="mt-2 text-sm text-neutral-300 max-w-prose">
               From technical SEO to content strategy — we optimize your site for
-              visibility, relevance and measurable growth.[cite: 10]
+              visibility, relevance and measurable growth.
             </p>
           </div>
           <div className="flex gap-3">
