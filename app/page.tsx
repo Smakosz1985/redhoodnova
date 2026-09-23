@@ -5,48 +5,6 @@ import Link from "next/link";
 export default function Home() {
   return (
     <main className="min-h-screen bg-black text-white flex flex-col">
-      {/* ===== HEADER / NAVIGATION ===== */}
-      <header className="w-full border-b border-neutral-800 bg-black/80 backdrop-blur-md sticky top-0 z-50 px-6 py-4 flex items-center justify-between">
-        {/* Logo w nagłówku */}
-        <Link href="/" className="flex items-center">
-          <Image
-            src="/logo.png"
-            alt="AeroFlux Studio"
-            width={140}
-            height={50}
-            className="w-28 h-auto object-contain"
-            priority
-          />
-        </Link>
-
-        {/* Menu z podświetleniem w stylu "Get a Quote" */}
-        <nav className="hidden md:flex items-center gap-3 text-sm font-medium">
-          {[
-            { name: "Home", href: "/" },
-            { name: "About", href: "/about" },
-            { name: "Our Work", href: "/work" },
-            { name: "Services", href: "/services" },
-            { name: "Contact", href: "/contact" },
-          ].map((item) => (
-            <Link
-              key={item.name}
-              href={item.href}
-              className="rounded-xl border border-cyan-500/40 bg-cyan-950/30 px-4 py-2 text-xs md:text-sm font-medium text-cyan-200 hover:bg-cyan-500/20 hover:border-cyan-400 transition shadow-[0_0_15px_rgba(6,182,212,0.1)]"
-            >
-              {item.name}
-            </Link>
-          ))}
-        </nav>
-
-        {/* Przycisk CTA w prawym rogu */}
-        <Link
-          href="/contact"
-          className="rounded-xl border border-cyan-500/40 bg-cyan-950/30 px-5 py-2 text-xs md:text-sm font-medium text-cyan-200 hover:bg-cyan-500/20 hover:border-cyan-400 transition shadow-[0_0_20px_rgba(6,182,212,0.1)]"
-        >
-          Get a Quote
-        </Link>
-      </header>
-
       {/* ===== MOSAIC ===== */}
       <section className="w-full bg-black flex flex-col px-0 md:flex-1">
         {/* RZĄD 1 */}
@@ -54,26 +12,14 @@ export default function Home() {
           {/* LEFT (Service 1) */}
           <Link
             href="/services/copywriting"
-            className="group relative overflow-hidden bg-neutral-950 border-r border-b border-neutral-800 p-8 md:p-12 flex flex-col justify-end order-2 md:order-1 transition-all hover:bg-neutral-900 hover:border-cyan-500/50 min-h-[220px]"
+            className="group relative overflow-hidden bg-neutral-950 border-r border-b border-neutral-800 p-8 md:p-12 flex flex-col justify-end order-2 md:order-1 transition-all hover:bg-neutral-900 hover:border-cyan-500/50"
           >
-            {/* Miejsce na sample1.png */}
-            <div className="absolute inset-0 z-0">
-              <Image
-                src="/sample1.png"
-                alt="Copywriting & Content"
-                fill
-                sizes="(min-width:1024px) 38vw, 100vw"
-                className="object-cover brightness-95 contrast-105 transition-transform duration-500 ease-out group-hover:scale-[1.12] will-change-transform"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent group-hover:from-black/60 transition" />
-            </div>
-
-            <div className="relative z-10">
-              <h3 className="text-xl md:text-2xl font-bold tracking-tight text-white group-hover:text-cyan-200 transition">
-                Copywriting & Content
-              </h3>
-              <p className="text-sm text-neutral-300 mt-2">Strategic words that convert and build brand authority.</p>
-            </div>
+            <div className="absolute top-0 right-0 w-32 h-32 bg-cyan-500/5 rounded-full blur-2xl group-hover:bg-cyan-500/10 transition" />
+            <span className="text-xs uppercase tracking-widest text-cyan-400 font-medium mb-3">01 / Service</span>
+            <h3 className="text-xl md:text-2xl font-bold tracking-tight text-white group-hover:text-cyan-200 transition">
+              Copywriting & Content
+            </h3>
+            <p className="text-sm text-neutral-400 mt-2">Strategic words that convert and build brand authority.</p>
           </Link>
 
           {/* CENTER (CTA) */}
@@ -99,35 +45,23 @@ export default function Home() {
           {/* RIGHT (Service 2) */}
           <Link
             href="/services/graphic-design"
-            className="group relative overflow-hidden bg-neutral-950 border-l border-b border-neutral-800 p-8 md:p-12 flex flex-col justify-end order-3 md:order-3 transition-all hover:bg-neutral-900 hover:border-cyan-500/50 min-h-[220px]"
+            className="group relative overflow-hidden bg-neutral-950 border-l border-b border-neutral-800 p-8 md:p-12 flex flex-col justify-end order-3 md:order-3 transition-all hover:bg-neutral-900 hover:border-cyan-500/50"
           >
-            {/* Miejsce na sample2.png */}
-            <div className="absolute inset-0 z-0">
-              <Image
-                src="/sample2.png"
-                alt="Graphic Design"
-                fill
-                sizes="(min-width:1024px) 38vw, 100vw"
-                className="object-cover brightness-95 contrast-105 transition-transform duration-500 ease-out group-hover:scale-[1.12] will-change-transform"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent group-hover:from-black/60 transition" />
-            </div>
-
-            <div className="relative z-10">
-              <h3 className="text-xl md:text-2xl font-bold tracking-tight text-white group-hover:text-cyan-200 transition">
-                Graphic Design
-              </h3>
-              <p className="text-sm text-neutral-300 mt-2">Unique visual identity and high-impact digital design.</p>
-            </div>
+            <div className="absolute top-0 right-0 w-32 h-32 bg-cyan-500/5 rounded-full blur-2xl group-hover:bg-cyan-500/10 transition" />
+            <span className="text-xs uppercase tracking-widest text-cyan-400 font-medium mb-3">02 / Service</span>
+            <h3 className="text-xl md:text-2xl font-bold tracking-tight text-white group-hover:text-cyan-200 transition">
+              Graphic Design
+            </h3>
+            <p className="text-sm text-neutral-400 mt-2">Unique visual identity and high-impact digital design.</p>
           </Link>
         </div>
 
         {/* RZĄD 2: 4 kafle usługowe */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-0 md:flex-1">
-          {/* Kafel 3: Web Design & Development */}
+          {/* Kafel 3: Web Design & Development ze zdjęciem sample3.png */}
           <Link 
             href="/services/web" 
-            className="group relative overflow-hidden bg-neutral-950 border-r border-b border-neutral-800 p-8 flex flex-col justify-end transition-all hover:border-cyan-500/50 min-h-[220px] md:min-h-0"
+            className="group relative overflow-hidden bg-neutral-950 border-r border-b border-neutral-800 p-8 flex flex-col justify-between transition-all hover:border-cyan-500/50 min-h-[220px] md:min-h-0"
           >
             <div className="absolute inset-0 z-0">
               <Image
@@ -140,6 +74,7 @@ export default function Home() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent group-hover:from-black/60 transition" />
             </div>
 
+            <span className="relative z-10 text-xs text-cyan-400 font-mono font-medium">03 / Service</span>
             <div className="relative z-10">
               <h3 className="text-lg font-semibold text-white group-hover:text-cyan-200 transition mb-2">
                 Web Design & Development
@@ -150,33 +85,23 @@ export default function Home() {
             </div>
           </Link>
 
-          {/* Pozostałe kafle (4, 5, 6) */}
+          {/* Pozostałe 3 kafle */}
           {[
-            { title: "E-commerce", desc: "High-converting online stores built for scale.", href: "/services/ecommerce", src: "/sample4.png" },
-            { title: "Branding", desc: "Comprehensive brand identity and strategic positioning.", href: "/services/branding", src: "/sample5.png" },
-            { title: "SEO & Marketing", desc: "Search engine visibility and digital growth strategies.", href: "/services/seo", src: "/sample6.png" },
-          ].map((t) => (
+            { title: "E-commerce", desc: "High-converting online stores built for scale.", href: "/services/ecommerce" },
+            { title: "Branding", desc: "Comprehensive brand identity and strategic positioning.", href: "/services/branding" },
+            { title: "SEO & Marketing", desc: "Search engine visibility and digital growth strategies.", href: "/services/seo" },
+          ].map((t, idx) => (
             <Link 
               key={t.title} 
               href={t.href} 
-              className="group relative overflow-hidden bg-neutral-950 border-r border-b border-neutral-800 p-8 flex flex-col justify-end transition-all hover:border-cyan-500/50 min-h-[220px] md:min-h-0"
+              className="group relative overflow-hidden bg-black border-r border-b border-neutral-800 p-8 flex flex-col justify-between transition-all hover:bg-neutral-950 hover:border-cyan-500/50 min-h-[200px] md:min-h-0"
             >
-              <div className="absolute inset-0 z-0">
-                <Image
-                  src={t.src}
-                  alt={t.title}
-                  fill
-                  sizes="(min-width:1024px) 25vw, 100vw"
-                  className="object-cover brightness-95 contrast-105 transition-transform duration-500 ease-out group-hover:scale-[1.12] will-change-transform"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent group-hover:from-black/60 transition" />
-              </div>
-
-              <div className="relative z-10">
+              <span className="text-xs text-neutral-500 font-mono">0{idx + 4}</span>
+              <div>
                 <h3 className="text-lg font-semibold text-white group-hover:text-cyan-200 transition mb-2">
                   {t.title}
                 </h3>
-                <p className="text-xs text-neutral-300 leading-relaxed">
+                <p className="text-xs text-neutral-400 leading-relaxed">
                   {t.desc}
                 </p>
               </div>
