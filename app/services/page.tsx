@@ -24,21 +24,23 @@ export default function ServicesIndex() {
         </div>
       </section>
 
-      {/* Siatka kafli z ramkami i wyraźnym oddzieleniem od dołu */}
-      <section className="w-full bg-black border-b border-neutral-800">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-0">
-          {items.map((s) => (
-            <Link key={s.href} href={s.href} className="group relative block aspect-[16/9] overflow-hidden border-r border-b border-neutral-800">
-              <Image src={s.img} alt={s.alt} fill sizes="33vw" className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.08] group-hover:brightness-110" />
-              <div className="absolute inset-0 bg-black/20 opacity-0 transition group-hover:opacity-100" />
-              <span className="absolute left-4 bottom-3 text-sm font-medium text-cyan-200">{s.title}</span>
-            </Link>
-          ))}
+      {/* Siatka kafli z marginesem (odstępem) od dolnego gradientu */}
+      <section className="w-full bg-black mb-12 md:mb-16">
+        <div className="max-w-7xl mx-auto px-6 pt-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {items.map((s) => (
+              <Link key={s.href} href={s.href} className="group relative block rounded-2xl overflow-hidden border border-neutral-800 bg-neutral-950 aspect-[16/9]">
+                <Image src={s.img} alt={s.alt} fill sizes="33vw" className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.08] group-hover:brightness-110" />
+                <div className="absolute inset-0 bg-black/20 opacity-0 transition group-hover:opacity-100" />
+                <span className="absolute left-4 bottom-3 text-sm font-medium text-cyan-200">{s.title}</span>
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="w-full bg-gradient-to-r from-cyan-950/40 via-cyan-900/10 to-transparent border-b border-neutral-800">
+      <section className="w-full bg-gradient-to-r from-cyan-950/40 via-cyan-900/10 to-transparent border-t border-b border-neutral-800 mt-auto">
         <div className="mx-auto max-w-7xl px-6 py-10 md:py-14 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
           <div>
             <h3 className="text-xl md:text-2xl font-semibold">Not sure where to start?</h3>
