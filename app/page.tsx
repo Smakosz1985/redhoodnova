@@ -12,7 +12,7 @@ export default function Home() {
           {/* LEFT (Service 1) */}
           <Link
             href="/services/copywriting"
-            className="group relative overflow-hidden bg-neutral-950 border-r border-b border-neutral-800 p-8 md:p-12 flex flex-col justify-end order-2 md:order-1 transition-all hover:bg-neutral-900 hover:border-cyan-500/50 min-h-[220px]"
+            className="group relative overflow-hidden bg-neutral-950 border border-neutral-800 p-8 md:p-12 flex flex-col justify-end order-2 md:order-1 transition-all hover:bg-neutral-900 hover:border-cyan-500/50 min-h-[220px]"
           >
             <div className="absolute inset-0 z-0">
               <Image
@@ -34,7 +34,7 @@ export default function Home() {
           </Link>
 
           {/* CENTER (CTA) */}
-          <div className="relative w-full aspect-[16/9] md:aspect-auto md:h-full bg-black flex flex-col items-center justify-center p-6 order-1 md:order-2 border-y md:border-y-0 md:border-x border-neutral-800">
+          <div className="relative w-full aspect-[16/9] md:aspect-auto md:h-full bg-black flex flex-col items-center justify-center p-6 order-1 md:order-2 border border-neutral-800">
             <div className="flex items-center justify-center mb-6">
               <Image
                 src="/logo.png"
@@ -56,7 +56,7 @@ export default function Home() {
           {/* RIGHT (Service 2) */}
           <Link
             href="/services/graphic-design"
-            className="group relative overflow-hidden bg-neutral-950 border-l border-b border-neutral-800 p-8 md:p-12 flex flex-col justify-end order-3 md:order-3 transition-all hover:bg-neutral-900 hover:border-cyan-500/50 min-h-[220px]"
+            className="group relative overflow-hidden bg-neutral-950 border border-neutral-800 p-8 md:p-12 flex flex-col justify-end order-3 md:order-3 transition-all hover:bg-neutral-900 hover:border-cyan-500/50 min-h-[220px]"
           >
             <div className="absolute inset-0 z-0">
               <Image
@@ -83,7 +83,7 @@ export default function Home() {
           {/* Kafel 3: Web Design & Development */}
           <Link 
             href="/services/web" 
-            className="group relative overflow-hidden bg-neutral-950 border-r border-b border-neutral-800 p-8 flex flex-col justify-end transition-all hover:border-cyan-500/50 min-h-[220px] md:min-h-0"
+            className="group relative overflow-hidden bg-neutral-950 border border-neutral-800 p-8 flex flex-col justify-end transition-all hover:border-cyan-500/50 min-h-[220px] md:min-h-0"
           >
             <div className="absolute inset-0 z-0">
               <Image
@@ -115,7 +115,7 @@ export default function Home() {
             <Link 
               key={t.title} 
               href={t.href} 
-              className="group relative overflow-hidden bg-neutral-950 border-r border-b border-neutral-800 p-8 flex flex-col justify-end transition-all hover:border-cyan-500/50 min-h-[220px] md:min-h-0"
+              className="group relative overflow-hidden bg-neutral-950 border border-neutral-800 p-8 flex flex-col justify-end transition-all hover:border-cyan-500/50 min-h-[220px] md:min-h-0"
             >
               <div className="absolute inset-0 z-0">
                 <Image
