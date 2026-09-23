@@ -22,7 +22,7 @@ export default function Home() {
             <p className="text-sm text-neutral-400 mt-2">Strategic words that convert and build brand authority.</p>
           </Link>
 
-          {/* CENTER (CTA) — Czyste tło, zero ramek, wielkie logo */}
+          {/* CENTER (CTA) */}
           <div className="relative w-full aspect-[16/9] md:aspect-auto md:h-full bg-black flex flex-col items-center justify-center p-6 order-1 md:order-2 border-y md:border-y-0 md:border-x border-neutral-800">
             <div className="flex items-center justify-center mb-6">
               <Image
@@ -58,8 +58,35 @@ export default function Home() {
 
         {/* RZĄD 2: 4 kafle usługowe */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-0 md:flex-1">
+          {/* Kafel 3: Web Design & Development ze zdjęciem sample3.png */}
+          <Link 
+            href="/services/web" 
+            className="group relative overflow-hidden bg-neutral-950 border-r border-b border-neutral-800 p-8 flex flex-col justify-between transition-all hover:border-cyan-500/50 min-h-[220px] md:min-h-0"
+          >
+            <div className="absolute inset-0 z-0">
+              <Image
+                src="/sample3.png"
+                alt="Web Design & Development"
+                fill
+                sizes="(min-width:1024px) 25vw, 100vw"
+                className="object-cover brightness-95 contrast-105 transition-transform duration-500 ease-out group-hover:scale-[1.12] will-change-transform"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent group-hover:from-black/60 transition" />
+            </div>
+
+            <span className="relative z-10 text-xs text-cyan-400 font-mono font-medium">03 / Service</span>
+            <div className="relative z-10">
+              <h3 className="text-lg font-semibold text-white group-hover:text-cyan-200 transition mb-2">
+                Web Design & Development
+              </h3>
+              <p className="text-xs text-neutral-300 leading-relaxed">
+                Lightning-fast, modern websites and applications.
+              </p>
+            </div>
+          </Link>
+
+          {/* Pozostałe 3 kafle */}
           {[
-            { title: "Web Design & Development", desc: "Lightning-fast, modern websites and applications.", href: "/services/web" },
             { title: "E-commerce", desc: "High-converting online stores built for scale.", href: "/services/ecommerce" },
             { title: "Branding", desc: "Comprehensive brand identity and strategic positioning.", href: "/services/branding" },
             { title: "SEO & Marketing", desc: "Search engine visibility and digital growth strategies.", href: "/services/seo" },
@@ -69,7 +96,7 @@ export default function Home() {
               href={t.href} 
               className="group relative overflow-hidden bg-black border-r border-b border-neutral-800 p-8 flex flex-col justify-between transition-all hover:bg-neutral-950 hover:border-cyan-500/50 min-h-[200px] md:min-h-0"
             >
-              <span className="text-xs text-neutral-500 font-mono">0{idx + 3}</span>
+              <span className="text-xs text-neutral-500 font-mono">0{idx + 4}</span>
               <div>
                 <h3 className="text-lg font-semibold text-white group-hover:text-cyan-200 transition mb-2">
                   {t.title}
