@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 
 export default function ContactPage() {
   const [status, setStatus] =
@@ -17,7 +17,7 @@ export default function ContactPage() {
   // prosta blokada floodu po stronie przeglądarki (20 s cooldown)
   function checkClientCooldown(): string | null {
     try {
-      const raw = localStorage.getItem("rhn-last-submit");
+      const raw = localStorage.getItem("aeroflux-last-submit");
       if (!raw) return null;
       const last = Number(raw);
       const diff = Date.now() - last;
@@ -74,7 +74,7 @@ export default function ContactPage() {
         setStatus("success");
         form.reset();
         try {
-          localStorage.setItem("rhn-last-submit", String(Date.now()));
+          localStorage.setItem("aeroflux-last-submit", String(Date.now()));
         } catch {}
       } else {
         setStatus("error");
@@ -88,10 +88,10 @@ export default function ContactPage() {
     <main className="min-h-screen bg-black text-white flex flex-col">
       
       {/* HERO */}
-      <section className="w-full border-b border-white/10 bg-black">
+      <section className="w-full border-b border-neutral-800 bg-black">
         <div className="mx-auto max-w-7xl px-6 py-10 md:py-16 grid md:grid-cols-5 gap-10 items-center">
           <div className="md:col-span-2">
-            <p className="text-xs tracking-widest text-orange-400/90 uppercase mb-3">
+            <p className="text-xs tracking-widest text-cyan-400 uppercase mb-3">
               Get in touch
             </p>
             <h1 className="text-3xl md:text-5xl font-semibold leading-tight">
@@ -102,13 +102,14 @@ export default function ContactPage() {
             </p>
           </div>
 
-          <div className="md:col-span-3">
-            <div className="relative w-full overflow-hidden rounded-2xl border border-white/10 aspect-[5/4] md:aspect-[4/3]">
+          {/* Zmniejszona grafika w hero */}
+          <div className="md:col-span-3 flex justify-center">
+            <div className="relative w-full max-w-md overflow-hidden rounded-2xl border border-neutral-800 aspect-[16/10]">
               <Image
                 src="/contact-visual.png"
                 alt="Email & Support Visual"
                 fill
-                sizes="(min-width:1024px) 60vw, 100vw"
+                sizes="(min-width:1024px) 40vw, 100vw"
                 className="object-cover"
                 priority
               />
@@ -121,7 +122,7 @@ export default function ContactPage() {
       {/* FORM GRID */}
       <section className="w-full bg-black">
         <div className="mx-auto max-w-7xl px-6 py-10 md:py-16 grid lg:grid-cols-2 gap-6 items-stretch">
-          <div className="rounded-2xl border border-white/10 bg-white/5 p-6 md:p-8">
+          <div className="rounded-2xl border border-neutral-800 bg-neutral-950 p-6 md:p-8">
             <h2 className="text-xl md:text-2xl font-semibold">Project details</h2>
             <p className="mt-2 text-sm text-neutral-300">
               The more context, the better the plan we can propose. Share goals, timeline, and any references or inspirations.
@@ -134,7 +135,7 @@ export default function ContactPage() {
           </div>
 
           {/* Form */}
-          <div className="rounded-2xl border border-white/10 bg-white/5 p-6 md:p-8 flex">
+          <div className="rounded-2xl border border-neutral-800 bg-neutral-950 p-6 md:p-8 flex">
             <form onSubmit={handleSubmit} className="space-y-5 w-full flex flex-col">
               {/* honeypot */}
               <input name="website" type="text" autoComplete="off" tabIndex={-1} className="hidden" />
@@ -148,19 +149,19 @@ export default function ContactPage() {
                 type="text"
                 placeholder="Your name or company"
                 required
-                className="w-full rounded-xl bg-black border border-white/20 px-4 py-3 text-sm focus:border-orange-500/70 focus:outline-none"
+                className="w-full rounded-xl bg-black border border-neutral-800 px-4 py-3 text-sm focus:border-cyan-500 focus:outline-none"
               />
               <input
                 name="email"
                 type="email"
                 placeholder="Email address"
                 required
-                className="w-full rounded-xl bg-black border border-white/20 px-4 py-3 text-sm focus:border-orange-500/70 focus:outline-none"
+                className="w-full rounded-xl bg-black border border-neutral-800 px-4 py-3 text-sm focus:border-cyan-500 focus:outline-none"
               />
               <select
                 name="subject"
                 required
-                className="w-full rounded-xl bg-black border border-white/20 px-4 py-3 text-sm focus:border-orange-500/70 focus:outline-none"
+                className="w-full rounded-xl bg-black border border-neutral-800 px-4 py-3 text-sm focus:border-cyan-500 focus:outline-none text-neutral-300"
               >
                 <option value="">Choose a topic…</option>
                 <option value="I want a quote">I want a quote</option>
@@ -171,23 +172,23 @@ export default function ContactPage() {
                 name="message"
                 placeholder="Your message"
                 required
-                className="min-h-[180px] flex-1 w-full rounded-xl bg-black border border-white/20 px-4 py-3 text-sm focus:border-orange-500/70 focus:outline-none"
+                className="min-h-[180px] flex-1 w-full rounded-xl bg-black border border-neutral-800 px-4 py-3 text-sm focus:border-cyan-500 focus:outline-none"
               />
 
               <button
                 type="submit"
                 disabled={status === "loading"}
-                className="self-start rounded-2xl border border-orange-500/70 px-6 py-3 text-sm font-medium text-orange-300 hover:bg-orange-500/10 transition disabled:opacity-50"
+                className="self-start rounded-xl border border-cyan-500/40 bg-cyan-950/30 px-6 py-3 text-sm font-medium text-cyan-200 hover:bg-cyan-500/20 hover:border-cyan-400 transition shadow-[0_0_20px_rgba(6,182,212,0.1)] disabled:opacity-50"
               >
                 {status === "loading" ? "Sending…" : "Send Message"}
               </button>
 
               {status === "success" && (
-                <p className="text-green-400 text-sm">Thanks, we&apos;ll get back to you soon.</p>
+                <p className="text-cyan-400 text-sm">Thanks, we&apos;ll get back to you soon.</p>
               )}
               {status === "error" && (
                 <p className="text-red-400 text-sm">
-                  Something went wrong. Please try again or email us at contact@redhoodnova.com.
+                  Something went wrong. Please try again or email us at contact@aerofluxstudio.com.
                 </p>
               )}
             </form>
@@ -196,7 +197,7 @@ export default function ContactPage() {
       </section>
 
       {/* WIDE CTA */}
-      <section className="w-full bg-gradient-to-r from-orange-600/20 via-orange-500/10 to-transparent">
+      <section className="w-full bg-gradient-to-r from-cyan-950/40 via-cyan-900/10 to-transparent border-t border-neutral-800">
         <div className="mx-auto max-w-7xl px-6 py-10 md:py-14 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
           <div>
             <h3 className="text-xl md:text-2xl font-semibold">Ready to start the conversation?</h3>
@@ -207,7 +208,7 @@ export default function ContactPage() {
           <div className="flex gap-3">
             <Link
               href="/services"
-              className="rounded-2xl border border-white/20 px-5 py-2 text-sm font-medium text-white/90 hover:bg-white/10 transition"
+              className="rounded-xl border border-neutral-800 bg-neutral-950 px-5 py-2 text-sm font-medium text-neutral-200 hover:bg-neutral-900 hover:border-neutral-700 transition"
             >
               Explore Services
             </Link>
