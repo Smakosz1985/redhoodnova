@@ -59,7 +59,7 @@ export default function Home() {
         {/* RZĄD 2: 4 kafle usługowe */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-0 md:flex-1">
           {[
-            { title: "Web Design & Dev", desc: "Lightning-fast, modern websites and applications.", href: "/services/web" },
+            { title: "Web Design & Development", desc: "Lightning-fast, modern websites and applications.", href: "/services/web" },
             { title: "E-commerce", desc: "High-converting online stores built for scale.", href: "/services/ecommerce" },
             { title: "Branding", desc: "Comprehensive brand identity and strategic positioning.", href: "/services/branding" },
             { title: "SEO & Marketing", desc: "Search engine visibility and digital growth strategies.", href: "/services/seo" },
