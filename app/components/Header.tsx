@@ -17,7 +17,7 @@ export default function Header() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
 
-  // Styl "Get a Quote" używany do podświetlenia linków w menu
+  // Styl podświetlenia linków w menu (aktywny lub po najechaniu)
   const buttonStyle =
     "rounded-xl border border-cyan-500/40 bg-cyan-950/35 px-4 py-2 text-xs md:text-sm font-medium text-cyan-200 transition shadow-[0_0_15px_rgba(6,182,212,0.12)] hover:bg-cyan-500/20 hover:border-cyan-400";
   
@@ -28,7 +28,7 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 w-full bg-black text-white border-b border-white/10">
       <div className="mx-auto max-w-7xl px-6 py-3 flex items-center justify-between">
-        {/* LOGO -> klikalne do Home */}
+        {/* LOGO -> klikalne do Home po lewej */}
         <Link href="/" className="shrink-0" aria-label="Go to homepage">
           <Image
             src="/logo.png"
@@ -40,24 +40,24 @@ export default function Header() {
           />
         </Link>
 
-        {/* Desktop nav */}
-        <nav className="hidden md:flex items-center gap-2 text-sm font-medium">
-          {links.map((l) => {
-            const active = pathname === l.href;
-            return (
-              <Link
-                key={l.href}
-                href={l.href}
-                className={active ? buttonStyle : defaultStyle}
-              >
-                {l.label}
-              </Link>
-            );
-          })}
-        </nav>
+        {/* Desktop nav + przycisk po prawej stronie */}
+        <div className="hidden md:flex items-center gap-6">
+          <nav className="flex items-center gap-2 text-sm font-medium">
+            {links.map((l) => {
+              const active = pathname === l.href;
+              return (
+                <Link
+                  key={l.href}
+                  href={l.href}
+                  className={active ? buttonStyle : defaultStyle}
+                >
+                  {l.label}
+                </Link>
+              );
+            })}
+          </nav>
 
-        {/* Przycisk CTA Get a Quote */}
-        <div className="hidden md:flex items-center">
+          {/* Oryginalny przycisk Get a Quote */}
           <Link
             href="/contact"
             className={buttonStyle}
@@ -92,6 +92,13 @@ export default function Header() {
               </Link>
             );
           })}
+          <Link
+            href="/contact"
+            onClick={() => setOpen(false)}
+            className="mt-2 text-center rounded-xl border border-cyan-500/40 bg-cyan-950/30 py-2.5 text-xs font-medium text-cyan-200"
+          >
+            Get a Quote
+          </Link>
         </div>
       )}
     </header>
