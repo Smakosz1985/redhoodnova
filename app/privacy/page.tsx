@@ -13,7 +13,7 @@ const UPDATED = "2026-06-06";
 const ORG_NAME = "AeroFlux Studio";
 const CONTROLLER_DESC =
   "AeroFlux Studio operates as a sole trader established in the United Kingdom and acts as the data controller for the Apps and website.";
-const PRIVACY_EMAIL = "contact@aeroflux.com";
+const PRIVACY_EMAIL = "contact@aerofluxstudio.com";
 const CONTACT_URL = "/contact";
 const DO_NOT_SELL_URL = "/privacy-choices";
 
@@ -171,7 +171,7 @@ export default function PrivacyPage() {
 
       <h2>13. Contact</h2>
       <p>
-        Questions or privacy requests? Visit <a href={CONTACT_URL}>aeroflux.com/contact</a> or email{" "}
+        Questions or privacy requests? Visit <a href={CONTACT_URL}>aerofluxstudio.com/contact</a> or email{" "}
         <a href={`mailto:${PRIVACY_EMAIL}`}>{PRIVACY_EMAIL}</a>. We respond within statutory deadlines.
       </p>
 
