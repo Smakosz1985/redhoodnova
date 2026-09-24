@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/privacy-choices" },
 };
 
-const UPDATED = "October 2025";
+const UPDATED = "October 2026";
 const CONTACT_EMAIL = "contact@aerofluxstudio.com";
 
 export default function PrivacyChoicesPage() {
