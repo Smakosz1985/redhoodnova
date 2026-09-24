@@ -6,13 +6,13 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-black text-white flex flex-col">
       {/* ===== MOSAIC ===== */}
-      <section className="w-full bg-black flex flex-col px-0">
+      <section className="w-full bg-black flex flex-col px-0 gap-[1px] bg-neutral-800">
         {/* RZĄD 1 */}
-        <div className="grid grid-cols-1 md:grid-cols-[1.3fr_1fr_1.3fr] gap-0">
+        <div className="grid grid-cols-1 md:grid-cols-[1.3fr_1fr_1.3fr] gap-[1px]">
           {/* LEFT (Service 1) */}
           <Link
             href="/services/copywriting"
-            className="group relative overflow-hidden bg-neutral-950 border border-neutral-800 p-6 md:p-8 flex flex-col justify-end order-2 md:order-1 transition-all hover:bg-neutral-900 hover:border-cyan-500/50 h-[280px] md:h-[340px]"
+            className="group relative overflow-hidden bg-neutral-950 p-6 md:p-8 flex flex-col justify-end transition-all hover:bg-neutral-900 hover:border-cyan-500/50 h-[320px] md:h-[360px]"
           >
             <div className="absolute inset-0 z-0">
               <Image
@@ -34,14 +34,14 @@ export default function Home() {
           </Link>
 
           {/* CENTER (CTA) */}
-          <div className="relative w-full bg-black flex flex-col items-center justify-center p-6 order-1 md:order-2 border border-neutral-800 h-[280px] md:h-[340px]">
+          <div className="relative w-full bg-neutral-950 flex flex-col items-center justify-center p-6 h-[320px] md:h-[360px]">
             <div className="flex items-center justify-center mb-4">
               <Image
                 src="/logo.png"
                 alt="AeroFlux Studio"
                 width={220}
                 height={90}
-                className="w-40 md:w-52 h-auto object-contain"
+                className="w-44 md:w-56 h-auto object-contain"
                 priority
               />
             </div>
@@ -56,7 +56,7 @@ export default function Home() {
           {/* RIGHT (Service 2) */}
           <Link
             href="/services/graphic-design"
-            className="group relative overflow-hidden bg-neutral-950 border border-neutral-800 p-6 md:p-8 flex flex-col justify-end order-3 md:order-3 transition-all hover:bg-neutral-900 hover:border-cyan-500/50 h-[280px] md:h-[340px]"
+            className="group relative overflow-hidden bg-neutral-950 p-6 md:p-8 flex flex-col justify-end transition-all hover:bg-neutral-900 hover:border-cyan-500/50 h-[320px] md:h-[360px]"
           >
             <div className="absolute inset-0 z-0">
               <Image
@@ -79,11 +79,11 @@ export default function Home() {
         </div>
 
         {/* RZĄD 2: 4 kafle usługowe */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-0">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-[1px]">
           {/* Kafel 3: Web Design & Development */}
           <Link 
             href="/services/web" 
-            className="group relative overflow-hidden bg-neutral-950 border border-neutral-800 p-6 flex flex-col justify-end transition-all hover:border-cyan-500/50 h-[220px]"
+            className="group relative overflow-hidden bg-neutral-950 p-6 flex flex-col justify-end transition-all hover:bg-neutral-900 h-[320px] md:h-[360px]"
           >
             <div className="absolute inset-0 z-0">
               <Image
@@ -115,7 +115,7 @@ export default function Home() {
             <Link 
               key={t.title} 
               href={t.href} 
-              className="group relative overflow-hidden bg-neutral-950 border border-neutral-800 p-6 flex flex-col justify-end transition-all hover:border-cyan-500/50 h-[220px]"
+              className="group relative overflow-hidden bg-neutral-950 p-6 flex flex-col justify-end transition-all hover:bg-neutral-900 h-[320px] md:h-[360px]"
             >
               <div className="absolute inset-0 z-0">
                 <Image
