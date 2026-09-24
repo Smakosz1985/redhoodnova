@@ -1,73 +1,62 @@
+// components/CookieBanner.tsx
 "use client";
+
 import { useEffect, useState } from "react";
 
-declare global {
-  interface Window {
-    enableGA?: () => void;
-    gtag?: (...args: any[]) => void;
-  }
-}
+const CONSENT_KEY = "aeroflux_cookie_consent_v1";
 
-export default function CookieBar() {
-  const [open, setOpen] = useState(false);
+export default function CookieBanner() {
+  const [show, setShow] = useState(false);
 
   useEffect(() => {
-    // pokaż baner tylko gdy nie ma naszej zgody/odmowy
-    const v = localStorage.getItem("rhn_cookie_consent_v1");
-    if (!v) setOpen(true);
+    try {
+      const consent = localStorage.getItem(CONSENT_KEY);
+      if (!consent) {
+        setShow(true);
+      }
+    } catch {
+      // fallback
+    }
   }, []);
 
-  if (!open) return null;
+  const handleConsent = (analytics: boolean, marketing: boolean) => {
+    try {
+      const data = { analytics, marketing, timestamp: Date.now() };
+      localStorage.setItem(CONSENT_KEY, JSON.stringify(data));
+      window.dispatchEvent(new CustomEvent("aeroflux:consent", { detail: data }));
+    } catch {}
+    setShow(false);
+  };
 
-  function save(value: "accepted" | "rejected") {
-    // nasz klucz do wersjonowania banera
-    localStorage.setItem("rhn_cookie_consent_v1", value);
-
-    // klucz zgodny z logiką w layout.tsx (tam czytasz rhn-consent)
-    localStorage.setItem(
-      "rhn-consent",
-      JSON.stringify({ analytics: value === "accepted" })
-    );
-
-    // aktualizacja trybu zgody (jeśli używasz Consent Mode)
-    if (value === "accepted") {
-      // jeśli layout zdefiniował helpera – uruchomi GA i/lub consent update
-      window.enableGA?.();
-      // dodatkowo (bezpiecznie): wymuś granted
-      window.gtag?.("consent", "update", { analytics_storage: "granted" });
-    } else {
-      window.gtag?.("consent", "update", { analytics_storage: "denied" });
-    }
-
-    // własny event – jeśli gdzieś nasłuchujesz
-    window.dispatchEvent(new CustomEvent("rhn:consent", { detail: value }));
-    setOpen(false);
-  }
+  if (!show) return null;
 
   return (
-    <div className="fixed inset-x-0 bottom-0 z-[60]">
-      <div className="mx-auto max-w-7xl px-6 pb-4">
-        <div className="rounded-2xl border border-white/10 bg-gradient-to-r from-orange-600/20 via-orange-500/10 to-transparent p-5 backdrop-blur">
-          <p className="text-xs md:text-sm text-neutral-300">
-            We use essential cookies and, if you allow, analytics/marketing cookies to improve the site.
-            <a href="/privacy" className="ml-1 underline hover:text-orange-300">Privacy & Cookies</a>.
+    <aside aria-label="Cookie consent" className="fixed bottom-4 left-4 right-4 z-50 mx-auto max-w-4xl rounded-xl border border-cyan-500/30 bg-neutral-950/90 p-4 shadow-[0_0_25px_rgba(6,182,212,0.15)] backdrop-blur-md md:p-5">
+      <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+        <div className="text-sm text-neutral-300">
+          <p className="leading-relaxed">
+            We use essential cookies to make our site work. With your consent, we may also use analytics and marketing cookies to improve your experience. Read our{" "}
+            <a href="/privacy" className="text-cyan-400 underline underline-offset-4 hover:text-cyan-300 transition-colors">
+              Privacy &amp; Cookies
+            </a>{" "}
+            policy.
           </p>
-          <div className="mt-3 flex gap-2">
-            <button
-              onClick={() => save("rejected")}
-              className="rounded-2xl border border-white/20 px-4 py-2 text-sm hover:bg-white/10"
-            >
-              Reject all
-            </button>
-            <button
-              onClick={() => save("accepted")}
-              className="rounded-2xl border border-orange-500/70 px-4 py-2 text-sm font-medium text-orange-300 hover:bg-orange-500/10"
-            >
-              Accept all
-            </button>
-          </div>
+        </div>
+        <div className="flex flex-wrap items-center gap-2 shrink-0">
+          <button
+            onClick={() => handleConsent(false, false)}
+            className="rounded-lg border border-neutral-700 bg-neutral-900 px-4 py-2 text-xs font-medium text-neutral-300 hover:bg-neutral-800 hover:text-white transition-all"
+          >
+            Reject non-essential
+          </button>
+          <button
+            onClick={() => handleConsent(true, true)}
+            className="rounded-lg bg-cyan-500 px-4 py-2 text-xs font-medium text-black shadow-[0_0_15px_rgba(6,182,212,0.4)] hover:bg-cyan-400 transition-all"
+          >
+            Accept all
+          </button>
         </div>
       </div>
-    </div>
+    </aside>
   );
 }
