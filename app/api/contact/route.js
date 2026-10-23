@@ -11,11 +11,11 @@ export async function POST(req) {
       return Response.json({ error: 'Wszystkie pola są wymagane.' }, { status: 400 });
     }
 
-    const data = await resend.emails.send({
-      from: 'AFS Web <onboarding@resend.dev>',
-      to: ['daniel.pizzer@gmail.com'], // <-- Twój e-mail, na który przyjdzie wiadomość
-      subject: `[AFS Contact] ${subject || 'Nowa wiadomość'} od ${name}`,
-      replyTo: email,
+   const data = await resend.emails.send({
+  from: 'AeroFlux Studio <contact@aerofluxstudio.com>', // <-- Twój zweryfikowany adres
+  to: ['aerofluxstuio.de@gmail.com'], // <-- Skrzynka, na którą odbierasz maile
+  subject: `[AFS Contact] ${subject || 'Nowa wiadomość'} od ${name}`,
+  replyTo: email,
       html: `
         <div style="font-family: sans-serif; color: #333;">
           <h2 style="color: #06b6d4;">Nowa wiadomość z aerofluxstudio.com</h2>
