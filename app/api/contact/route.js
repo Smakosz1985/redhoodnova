@@ -13,7 +13,7 @@ export async function POST(req) {
 
    const data = await resend.emails.send({
   from: 'AeroFlux Studio <contact@aerofluxstudio.com>', // <-- Twój zweryfikowany adres
-  to: ['aerofluxstuio.de@gmail.com'], // <-- Skrzynka, na którą odbierasz maile
+  to: ['aerofluxstudio.de@gmail.com'], // <-- Skrzynka, na którą odbierasz maile
   subject: `[AFS Contact] ${subject || 'Nowa wiadomość'} od ${name}`,
   replyTo: email,
       html: `
